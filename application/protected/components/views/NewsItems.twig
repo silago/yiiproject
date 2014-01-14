@@ -1,0 +1,14 @@
+	<h2> Новости </h2>
+	 {% for item in items %}
+		<div class="large-3 columns panel	">
+			<div class="">
+				<h6>	 {{ item.title }} </h6>
+				<small>  {{ item.pubDate }} </small>
+				<p>
+						 {{ item.preview }}
+				</p>
+				
+			</div>
+		</div> 
+	 {% endfor %}
+</div>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="zurb/css/foundation.css" />
+    <script src="zurb/js/modernizr.js"></script>
+  </head>
+  <body>
+    
+    
+   
+  
+		<div id="mainmenu">
+				<nav class="top-bar" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="#"><img src="/application/images/logo.png" alt="" style="height:35px;" /></a></h1> </li>
+							<li class="toggle-topbar menu-icon">
+								<a href="#">Меню</a></li>
+					</ul>
+						<section class="top-bar-section"> 
+							{{ this.widget('TuhesMenu',{},true) }}
+							<ul class="right">
+								{% block topRight %} {% endblock %}
+							</ul>
+						</section> </nav>
+				
+				
+		
+		</div><!-- mainmenu -->
+		
+	
+	   <div class="row">
+		
+		<div class="large-12 columns">
+		{% block content %}	{{content}}{%endblock%} 
+		</div>
+    </div>
+    
+   
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
