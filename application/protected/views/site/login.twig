@@ -1,0 +1,45 @@
+{% set breadcrumbs = {0:"login"} %}
+
+<h1>Вход</h1>
+
+<p>Пожалуйста, заполните следующие поля вашими админсими причиндалами:</p>
+
+<div class="form">
+	
+	{% set form = this.widget("CActiveForm", { 
+		'id':'login-form',
+		'enableClientValidation' : true,
+		'clientOptions':{'validateOnSumbit':true}
+    }
+    , false) 
+    %}
+	
+	
+	<form id="{{ form.id }}" action="{{ form.action }}" method={{form.method}}>
+<p class="note">Поля помеченные <span class="required">*</span> обязательны для заполнения.</p>
+
+	<div class="row">
+		{{ form.labelEx(model,'username') }}
+		{{ form.textField(model,'username') }}
+		{{ form.error(model,'username') }}
+	</div>
+
+	<div class="row">
+		{{ form.labelEx(model,'password') }}
+		{{ form.passwordField(model,'password') }}
+		{{ form.error(model,'password') }}
+		
+	</div>
+
+	<div class="row rememberMe">
+		{{ form.checkBox(model,'rememberMe') }}
+		{{ form.label(model,'rememberMe') }}
+		{{ form.error(model,'rememberMe') }}
+	</div>
+
+	<div class="row buttons">
+		<input type="submit" value="Вход" class="tiny button"/>
+	</div>
+
+</div><!-- form -->
+</form>

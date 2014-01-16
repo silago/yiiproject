@@ -176,9 +176,10 @@ abstract class CBaseController extends CComponent
 			return ob_get_clean();
 		}
 		else
-		{
+		{	
 			$widget=$this->createWidget($className,$properties);
 			$widget->run();
+			
 			return $widget;
 		}
 	}
@@ -193,9 +194,12 @@ abstract class CBaseController extends CComponent
 	 * @see endWidget
 	 */
 	public function beginWidget($className,$properties=array())
-	{
-		$widget=$this->createWidget($className,$properties);
+	{	
+		#echo ($className);
+		$widget = $this->createWidget($className,$properties);
+		#echo gettype($widget);
 		$this->_widgetStack[]=$widget;
+		#return "foo";
 		return $widget;
 	}
 

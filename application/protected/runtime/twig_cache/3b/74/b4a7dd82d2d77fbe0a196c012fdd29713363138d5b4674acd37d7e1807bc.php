@@ -35,7 +35,7 @@ class __TwigTemplate_3b74b4a7dd82d2d77fbe0a196c012fdd29713363138d5b4674acd37d7e1
         // line 4
         echo $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "content");
         echo "
-";
+ ";
     }
 
     public function getTemplateName()

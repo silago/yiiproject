@@ -7,17 +7,16 @@ class __TwigTemplate_0be759ea527d1054e27ea6609926c182d4d6532a1512bee60fc6508d62f
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("//views/layouts/main.twig");
+        $this->parent = $this->env->loadTemplate("//views/layouts/main_with_right.twig");
 
         $this->blocks = array(
             'content' => array($this, 'block_content'),
-            'topRight' => array($this, 'block_topRight'),
         );
     }
 
     protected function doGetParent(array $context)
     {
-        return "//views/layouts/main.twig";
+        return "//views/layouts/main_with_right.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -30,17 +29,8 @@ class __TwigTemplate_0be759ea527d1054e27ea6609926c182d4d6532a1512bee60fc6508d62f
     {
         // line 3
         echo "\t";
-        echo (isset($context["content"]) ? $context["content"] : null);
+        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "renderPartial", array(0 => "_form", 1 => array("model" => (isset($context["model"]) ? $context["model"] : null))), "method");
         echo "
-";
-    }
-
-    // line 6
-    public function block_topRight($context, array $blocks = array())
-    {
-        // line 7
-        echo "\t\t<li> <a href=\"/application/index.php?r=pages/index\">List Pages</a></li>
-\t\t<li> <a href=\"/application/index.php?r=pages/admin\">Manage Pages</a></li>
 ";
     }
 
@@ -56,6 +46,6 @@ class __TwigTemplate_0be759ea527d1054e27ea6609926c182d4d6532a1512bee60fc6508d62f
 
     public function getDebugInfo()
     {
-        return array (  42 => 7,  39 => 6,  32 => 3,  29 => 2,);
+        return array (  31 => 3,  28 => 2,);
     }
 }

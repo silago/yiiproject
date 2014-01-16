@@ -28,8 +28,8 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
         // line 6
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-    <link rel=\"stylesheet\" href=\"zurb/css/foundation.css\" />
-    <script src=\"zurb/js/modernizr.js\"></script>
+    <link rel=\"stylesheet\" href=\"/application/zurb/css/foundation.css\" />
+    <script src=\"/application/zurb/js/modernizr.js\"></script>
   </head>
   <body>
     
@@ -73,8 +73,8 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
     </div>
     
    
-    <script src=\"js/jquery.js\"></script>
-    <script src=\"js/foundation.min.js\"></script>
+    <script src=\"/application/js/jquery.js\"></script>
+    <script src=\"/application/js/foundation.min.js\"></script>
     <script>
       \$(document).foundation();
     </script>

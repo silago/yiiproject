@@ -31,6 +31,20 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
+	
+	public function actionAdmin()
+	{
+	
+	if (Yii::app()->user->getId() !== null) {
+		$this->render('admin');
+	}
+	else
+	$this->actionLogin();
+		
+		
+	
+	
+	}
 
 	/**
 	 * This is the action to handle external exceptions.
@@ -95,6 +109,9 @@ class SiteController extends Controller
 				$this->redirect(Yii::app()->user->returnUrl);
 		}
 		// display the login form
+		
+		
+		
 		$this->render('login',array('model'=>$model));
 	}
 
