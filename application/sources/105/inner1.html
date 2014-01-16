@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>title</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+	<div class="top-menu">
+		<div class="top-wrap">
+			<ul>
+				<li><a href="#">Факультет</a> <span class="one"></span></li>
+				<li>
+					<a href="#">Структуры</a> <span class="one"></span>
+
+					<ul class="first">
+						<li><a href="#">Администрация</a> <span  class="two"></span></li>
+						<li><a href="#">Ученый совет</a> <span  class="two"></span></li>
+						<li>
+							<a href="#">Кафедры</a> <span  class="two"></span>
+
+							<ul class="last">
+								<li><a href="#">Кафедра русского языка и общего языкознания</a></li>
+								<li><a href="#">Кафедра русской и зарубежной литературы</a></li>
+								<li><a href="#">Кафедра новейшей литературы</a></li>
+								<li><a href="#">Кафедра бурятской филологии</a></li>
+								<li><a href="#">Кафедра журналистики и медиаменеджмента</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li class="active"><a href="#">Центры</a> <span  class="one"></span></li>
+				<li><a href="#">Наука</a> <span  class="one"></span></li>
+				<li><a href="#">Абитуриенту</a> <span  class="one"></span></li>
+				<li><a href="#">Студенту</a> <span  class="one"></span></li>
+			</ul>	
+		</div>	
+	</div>
+<div id="wrap">
+	<!-- header -->
+	<div class="header">
+		<div class="logo">
+			<a href="#"><img src="images/logo.jpg" height="91" width="124" alt="" /></a>	
+		</div>
+
+		<div class="head-info">
+			<p>Факультет филологии и журналистики  ИГУ</p>	
+			<span>Филология лежит в основе не только науки,<br />
+			но и всей человеческой культуры</span>
+			<span class="author">Академик Д.С. Лихачев</span>
+		</div>
+
+		<div class="phone">
+			<p><strong>Адрес:</strong> Иркутск, ул. Чкалова, 2</p>
+			<p><strong>Телефон:</strong> +7 (3952) <strong>24-39-09</strong></p>	
+			<p><a href="#">Схема проезда</a></p>
+			<p>
+				<a class="virt" href="#">Виртуальная приемная</a>
+				<div class="virt-box">
+					<img src="images/virt-ln.png" height="9" width="15" alt="" />
+					<form>
+						<input type="text" placeholder="Имя" />
+						<input type="text" placeholder="E-mail" />
+						<input type="text" placeholder="Тема" />
+						<textarea placeholder="Сообщение"></textarea>
+						<input type="submit" value="Отправить" />
+					</form>	
+				</div>
+			</p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".virt").click(function() {
+				$(".virt-box").toggle();
+			});
+		});
+	</script>
+
+	<div class="news-container">
+		<div class="nav">
+			<a href="#">Главная</a>
+			<a href="#">Структура</a>
+			<a class="active" href="#">Кафедра новейшей литературы</a>	
+		</div>
+		<div class="title">
+			<p>Баннеры Кафедр</p>	
+			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+		</div>
+
+		<div class="banner-box">
+			<div class="banner-img">
+				<a href="#">Кафедра новейшей литературы</a>
+				<img src="images/banner-one.jpg" height="129" width="730" alt="" />	
+			</div>	
+
+			<div class="banner-info">
+				<p>г. Иркутск, <br /> ул. Чкалова, 2, каб. 214.</p>
+				<p>Тел. (3952) <strong>243995</strong>.</p>	
+				<p>e-mail: <a href="mailto:novlit@slovo.isu.ru">novlit@slovo.isu.ru</a></p>
+			</div>
+		</div>
+
+		<div class="banner-box">
+			<div class="banner-img">
+				<a href="#">Кафедра русской и зарубежной литературы</a>
+				<img src="images/banner-two.jpg" height="129" width="730" alt="" />	
+			</div>	
+
+			<div class="banner-info">
+				<p>г. Иркутск, <br /> ул. Чкалова, 2, каб. 214.</p>
+				<p>Тел. (3952) <strong>243995</strong>.</p>	
+				<p>e-mail: <a href="mailto:novlit@slovo.isu.ru">novlit@slovo.isu.ru</a></p>
+			</div>
+		</div>
+
+		<div class="banner-box">
+			<div class="banner-img">
+				<a href="#">Кафедра русского языка и общего языкознания</a>
+				<img src="images/banner-three.jpg" height="129" width="730" alt="" />	
+			</div>	
+
+			<div class="banner-info">
+				<p>г. Иркутск, <br /> ул. Чкалова, 2, каб. 214.</p>
+				<p>Тел. (3952) <strong>243995</strong>.</p>	
+				<p>e-mail: <a href="mailto:novlit@slovo.isu.ru">novlit@slovo.isu.ru</a></p>
+			</div>
+		</div>
+
+		<div class="banner-box">
+			<div class="banner-img">
+				<a href="#">Кафедра журналистики и медиаменеджмента</a>
+				<img src="images/banner-four.jpg" height="129" width="730" alt="" />	
+			</div>	
+
+			<div class="banner-info">
+				<p>г. Иркутск, <br /> ул. Чкалова, 2, каб. 214.</p>
+				<p>Тел. (3952) <strong>243995</strong>.</p>	
+				<p>e-mail: <a href="mailto:novlit@slovo.isu.ru">novlit@slovo.isu.ru</a></p>
+			</div>
+		</div>
+
+		<div class="banner-box">
+			<div class="banner-img">
+				<a href="#">Кафедра бурятской филологии</a>
+				<img src="images/banner-five.jpg" height="129" width="730" alt="" />	
+			</div>	
+
+			<div class="banner-info">
+				<p>г. Иркутск, <br /> ул. Чкалова, 2, каб. 214.</p>
+				<p>Тел. (3952) <strong>243995</strong>.</p>	
+				<p>e-mail: <a href="mailto:novlit@slovo.isu.ru">novlit@slovo.isu.ru</a></p>
+			</div>
+		</div>
+
+		<div class="banner-box">
+			<div class="banner-img">
+				<a href="#">Кафедра связей с общественностью и рекламных технологий</a>
+				<img src="images/banner-six.jpg" height="129" width="730" alt="" />	
+			</div>	
+
+			<div class="banner-info">
+				<p>г. Иркутск, <br /> ул. Чкалова, 2, каб. 214.</p>
+				<p>Тел. (3952) <strong>243995</strong>.</p>	
+				<p>e-mail: <a href="mailto:novlit@slovo.isu.ru">novlit@slovo.isu.ru</a></p>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="partner">
+		<div class="block">
+			<a href="#"><img src="images/partner1.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Министерство образования и науки РФ</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner2.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>	
+
+		<div class="block">
+			<a href="#"><img src="images/partner3.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner4.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner5.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner6.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner7.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+	</div>
+
+	<!-- footer -->
+	<div class="footer_blank"></div>
+</div>
+<div id="footer">
+	<div class="sub-info">
+		<p>Иркутск, ул. Чкалова, 2. </p>	
+		<p>Телефон: +7 (3952) 24-39-09</p>
+		<p><a href="#">схема проезда</a></p>
+	</div>
+
+	<div class="working">
+		<p>Создание сайта</p>	
+		<a href="#">In-site</a>
+	</div>
+
+	<p class="copyright">Факультет филологии и журналистики ИГУ</p>
+</div>
+
+</body>
+</html>

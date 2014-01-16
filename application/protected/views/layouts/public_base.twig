@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="js/jquery.slides.min.js"></script>
+<script>
+    $(function() {
+      $('#slides').slidesjs({
+        width: 957,
+        height: 297
+      });
+    });
+  </script>
+</head>
+
+
+
+<body>
+	<div class="top-menu">
+		<div class="top-wrap">
+				{{ this.widget('TuhesMenu',{'hui':'TuhesMenu'},true) }}
+			
+		</div>	
+	</div>
+<div id="wrap">
+	<!-- header -->
+	<div class="header">
+		<div class="logo">
+			<a href="#"><img src="images/logo.jpg" height="91" width="124" alt="" /></a>	
+		</div>
+
+		<div class="head-info">
+			<p>Факультет филологии и журналистики  ИГУ</p>	
+			<span>Филология лежит в основе не только науки,<br />
+			но и всей человеческой культуры</span>
+			<span class="author">Академик Д.С. Лихачев</span>
+		</div>
+
+		<div class="phone">
+			<p><strong>Адрес:</strong> Иркутск, ул. Чкалова, 2</p>
+			<p><strong>Телефон:</strong> +7 (3952) <strong>24-39-09</strong></p>	
+			<p><a href="#">Схема проезда</a></p>
+			<p>
+				<a class="virt" href="#">Виртуальная приемная</a>
+				<div class="virt-box">
+					<img src="images/virt-ln.png" height="9" width="15" alt="" />
+					<form>
+						<input type="text" placeholder="Имя" />
+						<input type="text" placeholder="E-mail" />
+						<input type="text" placeholder="Тема" />
+						<textarea placeholder="Сообщение"></textarea>
+						<input type="submit" value="Отправить" />
+					</form>	
+				</div>
+			</p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".virt").click(function() {
+				$(".virt-box").toggle();
+			});
+		});
+	</script>
+
+	<div class="slider-box">
+		<div class="slide-plash">
+			<p>В 2013 году<br /> исполняется</p>
+
+			<span>95 лет</span>
+
+			<p>ИРКУТСКОМУ<br />  
+			ГОСУДАРСТВЕННОМУ<br /> 
+			УНИВЕРСИТЕТУ<br /> 
+			И НАШЕМУ ФАКУЛЬТЕТУ
+			</p>	
+		</div>
+		<div id="slides">
+			<div class="slide-block">
+				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
+			</div>
+
+			<div class="slide-block">
+				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
+			</div>
+
+			<div class="slide-block">
+				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
+			</div>
+
+			<div class="slide-block">
+				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
+			</div>
+
+			<div class="slide-block">
+				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
+			</div>	
+		</div>	
+	</div>
+	
+	
+	{{ this.widget('NewsItems',{},true) }}
+<!--
+	<div class="news-container">
+		<div class="title">
+			<p>НОВОСТИ</p>	
+			<a href="#">Все новости</a>
+			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+		</div>
+
+		<div class="news-block">
+			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			<div class="news-info">
+				<p>22 октября</p>	
+				<p><strong>Посвящены в филологи!</strong></p>
+				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
+				<a href="#">Подробней</a>
+			</div>
+		</div>	
+
+		<div class="news-block">
+			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			<div class="news-info">
+				<p>22 октября</p>	
+				<p><strong>Посвящены в филологи!</strong></p>
+				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
+				<a href="#">Подробней</a>
+			</div>
+		</div>
+
+		<div class="news-block">
+			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			<div class="news-info">
+				<p>22 октября</p>	
+				<p><strong>Посвящены в филологи!</strong></p>
+				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
+				<a href="#">Подробней</a>
+			</div>
+		</div>
+
+		<div class="news-block">
+			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			<div class="news-info">
+				<p>22 октября</p>	
+				<p><strong>Посвящены в филологи!</strong></p>
+				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
+				<a href="#">Подробней</a>
+			</div>
+		</div>
+
+		<div class="news-block">
+			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			<div class="news-info">
+				<p>22 октября</p>	
+				<p><strong>Посвящены в филологи!</strong></p>
+				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
+				<a href="#">Подробней</a>
+			</div>
+		</div>
+
+		<div class="news-block">
+			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			<div class="news-info">
+				<p>22 октября</p>	
+				<p><strong>Посвящены в филологи!</strong></p>
+				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
+				<a href="#">Подробней</a>
+			</div>
+		</div>
+	</div>
+-->
+	<div class="partner">
+		<div class="block">
+			<a href="#"><img src="images/partner1.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Министерство образования и науки РФ</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner2.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>	
+
+		<div class="block">
+			<a href="#"><img src="images/partner3.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner4.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner5.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner6.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+
+		<div class="block">
+			<a href="#"><img src="images/partner7.png" height="86" width="130" alt="" /></a>
+			<img src="images/line.png" height="1" width="125" alt="" />	
+			<p>Научная электронная библиотека</p>
+		</div>
+	</div>
+
+	<!-- footer -->
+	<div class="footer_blank"></div>
+</div>
+<div id="footer">
+	<div class="sub-info">
+		<p>Иркутск, ул. Чкалова, 2. </p>	
+		<p>Телефон: +7 (3952) 24-39-09</p>
+		<p><a href="#">схема проезда</a></p>
+	</div>
+
+	<div class="working">
+		<p>Создание сайта</p>	
+		<a href="#">In-site</a>
+	</div>
+
+	<p class="copyright">Факультет филологии и журналистики ИГУ</p>
+</div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <body>
+    
+    
+   
+  
+		<div id="mainmenu">
+				<nav class="top-bar" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="#"><img src="/application/images/logo.png" alt="" style="height:35px;" /></a></h1> </li>
+							<li class="toggle-topbar menu-icon">
+								<a href="#">Меню</a></li>
+					</ul>
+						<section class="top-bar-section"> 
+							{{ this.widget('TuhesMenu',{},true) }}
+							<ul class="right">
+								{% block topRight %} {% endblock %}
+							</ul>
+						</section> </nav>
+				
+				
+		
+		</div><!-- mainmenu -->
+		
+	
+	   <div class="row">
+		
+		<div class="large-12 columns">
+		{% block content %}	{{content}}{%endblock%} 
+		</div>
+    </div>
+    
+   
+    <script src="/application/js/jquery.js"></script>
+    <script src="/application/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

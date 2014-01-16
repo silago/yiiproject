@@ -16,39 +16,45 @@ class __TwigTemplate_d64e99c50c81e5aef62a41579a2141980f0504e089f84b4624d18425daa
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "\t<h2> Новости </h2>
-\t ";
-        // line 2
+        echo "
+<div class=\"news-container\">
+\t\t<div class=\"title\">
+\t\t\t<p>НОВОСТИ</p>\t
+\t\t\t<a href=\"#\">Все новости</a>
+\t\t\t<img src=\"images/title-ln.jpg\" height=\"12\" width=\"20\" alt=\"\" />
+\t\t</div>
+
+\t\t<div class=\"news-block\">
+\t\t\t<a href=\"#\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
+\t\t\t ";
+        // line 11
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["items"]) ? $context["items"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 3
-            echo "\t\t<div class=\"large-3 columns panel\t\">
-\t\t\t<div class=\"\">
-\t\t\t\t<h6>\t ";
-            // line 5
-            echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "title");
-            echo " </h6>
-\t\t\t\t<small>  ";
-            // line 6
+            // line 12
+            echo "\t\t\t\t<div class=\"news-info\">
+\t\t\t\t\t<p>";
+            // line 13
             echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "pubDate");
-            echo " </small>
-\t\t\t\t<p>
-\t\t\t\t\t\t ";
-            // line 8
+            echo "</p>\t
+\t\t\t\t\t<p><strong>";
+            // line 14
+            echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "title");
+            echo "</strong></p>
+\t\t\t\t\t<p> ";
+            // line 15
             echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "preview");
-            echo "
-\t\t\t\t</p>
-\t\t\t\t
-\t\t\t</div>
-\t\t</div> 
-\t ";
+            echo "</p>
+\t\t\t\t\t<a href=\"#\">Подробней</a>
+\t\t\t\t</div>
+\t\t\t ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 14
-        echo "</div>
+        // line 19
+        echo "\t\t</div>\t
+</div>
 ";
     }
 
@@ -64,6 +70,6 @@ class __TwigTemplate_d64e99c50c81e5aef62a41579a2141980f0504e089f84b4624d18425daa
 
     public function getDebugInfo()
     {
-        return array (  51 => 14,  39 => 8,  34 => 6,  30 => 5,  26 => 3,  22 => 2,  19 => 1,);
+        return array (  56 => 19,  46 => 15,  42 => 14,  38 => 13,  35 => 12,  31 => 11,  19 => 1,  358 => 292,  352 => 280,  347 => 5,  330 => 292,  317 => 281,  315 => 280,  310 => 278,  135 => 106,  50 => 24,  28 => 5,  22 => 1,);
     }
 }

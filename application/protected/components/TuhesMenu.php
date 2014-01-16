@@ -5,6 +5,7 @@
     public $title;
     public $menu;
     public $items;
+    public $hui;
     public function init(){
 		$this->hideOnEmpty=true;
 		$controllerId = Yii::app()->controller;
@@ -28,12 +29,8 @@
     
     protected function renderContent()
     {
-    if (isset ($this->items)) {
-		#foreach ($this->items as $r)
-		#	echo $r->title;
-		#var_dump($this->items);
-		#die();
-		$this->render('TuhesMenu', array('items'=>$this->items));
+    if (!empty ($this->hui)) {
+		$this->render($this->hui, array('items'=>$this->items));
 		}
     }
     

@@ -1,14 +1,20 @@
-	<h2> Новости </h2>
-	 {% for item in items %}
-		<div class="large-3 columns panel	">
-			<div class="">
-				<h6>	 {{ item.title }} </h6>
-				<small>  {{ item.pubDate }} </small>
-				<p>
-						 {{ item.preview }}
-				</p>
-				
-			</div>
-		</div> 
-	 {% endfor %}
+
+<div class="news-container">
+		<div class="title">
+			<p>НОВОСТИ</p>	
+			<a href="#">Все новости</a>
+			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+		</div>
+
+		<div class="news-block">
+			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			 {% for item in items %}
+				<div class="news-info">
+					<p>{{ item.pubDate }}</p>	
+					<p><strong>{{ item.title }}</strong></p>
+					<p> {{ item.preview }}</p>
+					<a href="#">Подробней</a>
+				</div>
+			 {% endfor %}
+		</div>	
 </div>

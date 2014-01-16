@@ -5,6 +5,11 @@ class SiteController extends Controller
 	/**
 	 * Declares class-based actions.
 	 */
+	 
+	public $layout='//layouts/public_base.twig'; 
+	 
+	 
+	 
 	public function actions()
 	{
 		return array(
