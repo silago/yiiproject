@@ -62,7 +62,7 @@ class SlidesController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$zmodel=new Slides;
+		$model=new Slides;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -78,17 +78,71 @@ class SlidesController extends Controller
 		#$modMyModel=new MyModel;
 		
         if(isset($_POST['Slides'])){
-            $zmodel->attributes=$_POST['Slides'];
-            $zmodel->id_file=CUploadedFile::getInstance($zmodel,'file');
-            if($zmodel->save()){
-                $zmodel->id_file->saveAs('path/to/localFile');
-                // перенаправляем на страницу, где выводим сообщение об
-                // успешной загрузке
+            $model->attributes=$_POST['Slides'];
+            $model->file=CUploadedFile::getInstance($model,'file');
+            
+            if ($model->file){
+				$f = pathinfo($model->file->getName());	
+				$path = $_SERVER['DOCUMENT_ROOT'].'/application/uploads/';
+				$prefix= (string)time();
+				$name  = $prefix.'_'.$f['filename'].'.'.$f['extension'];
+				
+				$fileName = $path.$name;
+				$thumbName = $path.'thumb_'.$name;
+				#$thumbName = $_SERVER['DOCUMENT_ROOT'].'/application/uploads/thumb_'.time().'-'.$f['filename'].'.'.$f['extension'];
+			
+				
+				#die($width);
+			
+			}
+			
+            if($model->save()){
+				
+				
+				$model->file->saveAs($fileName)	;
+				
+			
+
+				$model->file=  $name;
+				$model->save();
+				
+				
+				$imagevariables=getimagesize($fileName);
+		
+				$width_ = '957';  $wratio = $imagevariables[0]/$width_;
+				$height_ = '297'; $hratio = $imagevariables[1]/$height_;
+			#	echo $wratio;
+			#	echo '-';
+			#	echo $hratio;
+				
+				$new_width = $width_;
+				$new_height = $height_;
+				if ($wratio<$hratio)
+					$new_height = NULL;
+				else
+					$new_width = NULL;
+								
+				$image = new EasyImage($fileName);
+			#	echo '---'.$new_width;
+			#	echo '---'.$new_height;
+				#echo "<pre>";
+				
+#echo "width=".$image['width'];
+				#$a = var_export(($image));
+				#echo (gettype($a));
+				
+				#echo "</pre>";
+			#	die();
+				
+				$image->resize($new_width, $new_height);
+				$image->crop($width_, $height_);
+				$image->save($thumbName);
+	
             }
         }
 
 		$this->render('create',array(
-			'model'=>$zmodel,
+			'model'=>$model,
 		));
 	}
 

@@ -10,12 +10,15 @@
  * @property string $title
  * @property string $slug
  * @property string $content
+ * @property string $html_template
  * @property string $html_title
  * @property string $html_description
  * @property string $htm_keywords
  */
 class Pages extends CActiveRecord
-{
+{	
+	
+	#private $_children = array();
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,7 +37,7 @@ class Pages extends CActiveRecord
 		return array(
 			array('owner, order, title, slug, content', 'required'),
 			array('owner, order', 'numerical', 'integerOnly'=>true),
-			array('title, slug, html_title, html_description, htm_keywords', 'length', 'max'=>255),
+			array('title, slug, html_template, html_title, html_description, htm_keywords', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, owner, order, title, slug, content, html_title, html_description, htm_keywords', 'safe', 'on'=>'search'),
@@ -65,6 +68,7 @@ class Pages extends CActiveRecord
 			'title' => 'Title',
 			'slug' => 'Slug',
 			'content' => 'Content',
+			'html_template' => 'Html Template',
 			'html_title' => 'Html Title',
 			'html_description' => 'Html Description',
 			'htm_keywords' => 'Htm Keywords',
@@ -110,6 +114,25 @@ class Pages extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Pages the static model class
 	 */
+	public static function getTree($id=0,$prefix='')
+	{
+		# = array();
+		
+		#echo $id;
+		$result = array();
+		if ($id === 0) $result[0] = 'NULL';
+		$tree =  self::model()->findAll('owner=:owner', array(':owner'=>$id));	
+		foreach ($tree as &$row):
+		#	true;
+			$result[$row->id] = $row->title;
+			#$result[$row->id] = $row->title;
+			$ch = self::model()->getTree($row->id);
+			if (!empty($ch))$result[$row->title]  =  $ch;
+		endforeach;
+#		if ($id !== 0) print_r($result);
+		return $result;	
+	}
+	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

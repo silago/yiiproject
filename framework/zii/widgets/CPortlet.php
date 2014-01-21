@@ -101,6 +101,7 @@ class CPortlet extends CWidget
 		echo $this->_openTag;
 		echo $content;
 		echo "</div>\n";
+		
 		echo CHtml::closeTag($this->tagName);
 	}
 

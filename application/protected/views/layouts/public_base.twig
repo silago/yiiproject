@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <title>{% block title %}{% endblock %}</title>
-<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="/application/css/main.css" />
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-<script src="js/jquery.slides.min.js"></script>
+<script src="/application/js/jquery.slides.min.js"></script>
 <script>
     $(function() {
       $('#slides').slidesjs({
@@ -80,142 +80,16 @@
 			</p>	
 		</div>
 		<div id="slides">
-			<div class="slide-block">
-				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
-			</div>
-
-			<div class="slide-block">
-				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
-			</div>
-
-			<div class="slide-block">
-				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
-			</div>
-
-			<div class="slide-block">
-				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
-			</div>
-
-			<div class="slide-block">
-				<img src="images/slider-img.jpg" height="297" width="957" alt="" />	
-			</div>	
-		</div>	
+			<!-- start -->
+				{{ this.widget('SlidesItems',{},true) }}
+			<!-- end -->
+		</div>
 	</div>
 	
 	
-	{{ this.widget('NewsItems',{},true) }}
-<!--
-	<div class="news-container">
-		<div class="title">
-			<p>НОВОСТИ</p>	
-			<a href="#">Все новости</a>
-			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
-		</div>
-
-		<div class="news-block">
-			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
-			<div class="news-info">
-				<p>22 октября</p>	
-				<p><strong>Посвящены в филологи!</strong></p>
-				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-				<a href="#">Подробней</a>
-			</div>
-		</div>	
-
-		<div class="news-block">
-			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
-			<div class="news-info">
-				<p>22 октября</p>	
-				<p><strong>Посвящены в филологи!</strong></p>
-				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-				<a href="#">Подробней</a>
-			</div>
-		</div>
-
-		<div class="news-block">
-			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
-			<div class="news-info">
-				<p>22 октября</p>	
-				<p><strong>Посвящены в филологи!</strong></p>
-				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-				<a href="#">Подробней</a>
-			</div>
-		</div>
-
-		<div class="news-block">
-			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
-			<div class="news-info">
-				<p>22 октября</p>	
-				<p><strong>Посвящены в филологи!</strong></p>
-				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-				<a href="#">Подробней</a>
-			</div>
-		</div>
-
-		<div class="news-block">
-			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
-			<div class="news-info">
-				<p>22 октября</p>	
-				<p><strong>Посвящены в филологи!</strong></p>
-				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-				<a href="#">Подробней</a>
-			</div>
-		</div>
-
-		<div class="news-block">
-			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
-			<div class="news-info">
-				<p>22 октября</p>	
-				<p><strong>Посвящены в филологи!</strong></p>
-				<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-				<a href="#">Подробней</a>
-			</div>
-		</div>
-	</div>
--->
-	<div class="partner">
-		<div class="block">
-			<a href="#"><img src="images/partner1.png" height="86" width="130" alt="" /></a>
-			<img src="images/line.png" height="1" width="125" alt="" />	
-			<p>Министерство образования и науки РФ</p>
-		</div>
-
-		<div class="block">
-			<a href="#"><img src="images/partner2.png" height="86" width="130" alt="" /></a>
-			<img src="images/line.png" height="1" width="125" alt="" />	
-			<p>Научная электронная библиотека</p>
-		</div>	
-
-		<div class="block">
-			<a href="#"><img src="images/partner3.png" height="86" width="130" alt="" /></a>
-			<img src="images/line.png" height="1" width="125" alt="" />	
-			<p>Научная электронная библиотека</p>
-		</div>
-
-		<div class="block">
-			<a href="#"><img src="images/partner4.png" height="86" width="130" alt="" /></a>
-			<img src="images/line.png" height="1" width="125" alt="" />	
-			<p>Научная электронная библиотека</p>
-		</div>
-
-		<div class="block">
-			<a href="#"><img src="images/partner5.png" height="86" width="130" alt="" /></a>
-			<img src="images/line.png" height="1" width="125" alt="" />	
-			<p>Научная электронная библиотека</p>
-		</div>
-
-		<div class="block">
-			<a href="#"><img src="images/partner6.png" height="86" width="130" alt="" /></a>
-			<img src="images/line.png" height="1" width="125" alt="" />	
-			<p>Научная электронная библиотека</p>
-		</div>
-
-		<div class="block">
-			<a href="#"><img src="images/partner7.png" height="86" width="130" alt="" /></a>
-			<img src="images/line.png" height="1" width="125" alt="" />	
-			<p>Научная электронная библиотека</p>
-		</div>
-	</div>
+	{% block content %}
+	
+	{% endblock %}
 
 	<!-- footer -->
 	<div class="footer_blank"></div>
@@ -241,63 +115,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <body>
-    
-    
-   
-  
-		<div id="mainmenu">
-				<nav class="top-bar" data-topbar>
-					<ul class="title-area">
-						<li class="name">
-							<h1><a href="#"><img src="/application/images/logo.png" alt="" style="height:35px;" /></a></h1> </li>
-							<li class="toggle-topbar menu-icon">
-								<a href="#">Меню</a></li>
-					</ul>
-						<section class="top-bar-section"> 
-							{{ this.widget('TuhesMenu',{},true) }}
-							<ul class="right">
-								{% block topRight %} {% endblock %}
-							</ul>
-						</section> </nav>
-				
-				
-		
-		</div><!-- mainmenu -->
-		
-	
-	   <div class="row">
-		
-		<div class="large-12 columns">
-		{% block content %}	{{content}}{%endblock%} 
-		</div>
-    </div>
-    
-   
-    <script src="/application/js/jquery.js"></script>
-    <script src="/application/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
-</html>

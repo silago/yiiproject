@@ -13,7 +13,7 @@ class Slides extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
-	public $id_file;
+	#public $id_file;
 	 
 	public function tableName()
 	{
@@ -32,9 +32,10 @@ class Slides extends CActiveRecord
 			array('order', 'numerical', 'integerOnly'=>true),
 			array('file', 'length', 'max'=>255),
 			array('file', 'file','types'=>'jpg, gif, png'),
-			// The following rule is used by search().
+			#// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, file, order', 'safe', 'on'=>'search'),
+			array('file', 'file', 'types'=>'jpg, gif, png', 'maxSize' => 1048576),
 			#array('id_file', 'DImageValidator'),
 		);
 	}
@@ -95,19 +96,7 @@ class Slides extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Slides the static model class
 	 */
-	
-	public function beforeSave()
-    {
-        foreach ($this->attributes as $key => $attribute) 
-            if ($attribute instanceof CUploadedFile)
-            {
-                $strSource = uniqid();
-                if ($attribute->saveAs(Yii::getPathOfAlias('application.data.files') . '/' .  $strSource))
-                    $this->$key = $strSource;
-            }
-        return parent::beforeSave();
-    }
-    
+
     
 	public static function model($className=__CLASS__)
 	{

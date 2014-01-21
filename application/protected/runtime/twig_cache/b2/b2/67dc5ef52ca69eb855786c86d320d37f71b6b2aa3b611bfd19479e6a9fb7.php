@@ -7,17 +7,29 @@ class __TwigTemplate_b2b267dc5ef52ca69eb855786c86d320d37f71b6b2aa3b611bfd19479e6
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("//views/layouts/zurb.twig");
 
         $this->blocks = array(
+            'content' => array($this, 'block_content'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "//views/layouts/zurb.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_content($context, array $blocks = array())
+    {
+        // line 4
         $context["breadcrumbs"] = array(0 => "login");
-        // line 2
+        // line 5
         echo "
 <h1>Вход</h1>
 
@@ -26,13 +38,13 @@ class __TwigTemplate_b2b267dc5ef52ca69eb855786c86d320d37f71b6b2aa3b611bfd19479e6
 <div class=\"form\">
 \t
 \t";
-        // line 9
+        // line 12
         $context["form"] = $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "CActiveForm", 1 => array("id" => "login-form", "enableClientValidation" => true, "clientOptions" => array("validateOnSumbit" => true)), 2 => false), "method");
-        // line 16
+        // line 19
         echo "\t
 \t
 \t<form id=\"";
-        // line 18
+        // line 21
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "id");
         echo "\" action=\"";
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "action");
@@ -43,30 +55,30 @@ class __TwigTemplate_b2b267dc5ef52ca69eb855786c86d320d37f71b6b2aa3b611bfd19479e6
 
 \t<div class=\"row\">
 \t\t";
-        // line 22
+        // line 25
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "labelEx", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "username"), "method");
         echo "
 \t\t";
-        // line 23
+        // line 26
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "textField", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "username"), "method");
         echo "
 \t\t";
-        // line 24
+        // line 27
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "error", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "username"), "method");
         echo "
 \t</div>
 
 \t<div class=\"row\">
 \t\t";
-        // line 28
+        // line 31
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "labelEx", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "password"), "method");
         echo "
 \t\t";
-        // line 29
+        // line 32
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "passwordField", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "password"), "method");
         echo "
 \t\t";
-        // line 30
+        // line 33
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "error", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "password"), "method");
         echo "
 \t\t
@@ -74,15 +86,15 @@ class __TwigTemplate_b2b267dc5ef52ca69eb855786c86d320d37f71b6b2aa3b611bfd19479e6
 
 \t<div class=\"row rememberMe\">
 \t\t";
-        // line 35
+        // line 38
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "checkBox", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "rememberMe"), "method");
         echo "
 \t\t";
-        // line 36
+        // line 39
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "label", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "rememberMe"), "method");
         echo "
 \t\t";
-        // line 37
+        // line 40
         echo $this->getAttribute((isset($context["form"]) ? $context["form"] : null), "error", array(0 => (isset($context["model"]) ? $context["model"] : null), 1 => "rememberMe"), "method");
         echo "
 \t</div>
@@ -93,7 +105,9 @@ class __TwigTemplate_b2b267dc5ef52ca69eb855786c86d320d37f71b6b2aa3b611bfd19479e6
 
 </div><!-- form -->
 </form>
-";
+
+
+ ";
     }
 
     public function getTemplateName()
@@ -108,6 +122,6 @@ class __TwigTemplate_b2b267dc5ef52ca69eb855786c86d320d37f71b6b2aa3b611bfd19479e6
 
     public function getDebugInfo()
     {
-        return array (  86 => 37,  82 => 36,  78 => 35,  70 => 30,  66 => 29,  62 => 28,  55 => 24,  51 => 23,  47 => 22,  36 => 18,  32 => 16,  30 => 9,  21 => 2,  19 => 1,);
+        return array (  98 => 40,  94 => 39,  90 => 38,  82 => 33,  78 => 32,  74 => 31,  67 => 27,  63 => 26,  59 => 25,  48 => 21,  44 => 19,  42 => 12,  33 => 5,  31 => 4,  28 => 3,);
     }
 }

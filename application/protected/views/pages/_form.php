@@ -4,7 +4,13 @@
 /* @var $form CActiveForm */
 ?>
 
+<div class="column-12">
 <div class="form">
+	<div>
+	<p> &nbsp; </p>
+	<p> </p>
+	</div>
+
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'pages-form',
@@ -21,13 +27,23 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'owner'); ?>
-		<?php echo $form->textField($model,'owner'); ?>
+		<?php# var_dump($this);?>
+		<?php
+		# $a = $model->getTree(); 
+		# var_dump($a);
+		?>
+		<?php
+	#	var_dump($model->getTree());
+		 echo $form->dropDownList($model, 'owner', $model->getTree(), array('0' => 'NULL'));
+		   ?>
+		<?php #echo $form->textField($model,'owner'); ?>
 		<?php echo $form->error($model,'owner'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'order'); ?>
-		<?php echo $form->textField($model,'order'); ?>
+		
+		<?php  echo $form->textField($model,'order'); ?>
 		<?php echo $form->error($model,'order'); ?>
 	</div>
 
@@ -45,10 +61,39 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
+		<?php $attribute = 'content'; ?>
+		<?php $this->widget('application.widgets.redactor.ERedactorWidget',array(
+		'model'=>$model,
+		'attribute'=>$attribute,
+		'options'=>array(
+        'fileUpload'=>Yii::app()->createUrl('pages/fileUpload',array(
+            'attr'=>$attribute
+        )),
+        'fileUploadErrorCallback'=>new CJavaScriptExpression(
+            'function(obj,json) { alert(json.error); }'
+        ),
+        'imageUpload'=>Yii::app()->createUrl('pages/imageUpload',array(
+            'attr'=>$attribute
+        )),
+        'imageGetJson'=>Yii::app()->createUrl('pages/imageList',array(
+            'attr'=>$attribute
+        )),
+        'imageUploadErrorCallback'=>new CJavaScriptExpression(
+            'function(obj,json) { alert(json.error); }'
+        ),
+		),
+)); ?>
+
+		<?php /* echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50));*/ ?>
 		<?php echo $form->error($model,'content'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'html_template'); ?>
+		<?php echo $form->textField($model,'html_template',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'html_template'); ?>
+	</div>
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'html_title'); ?>
 		<?php echo $form->textField($model,'html_title',array('size'=>60,'maxlength'=>255)); ?>
@@ -73,4 +118,5 @@
 
 <?php $this->endWidget(); ?>
 
+</div><!-- form -->
 </div><!-- form -->

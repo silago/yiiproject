@@ -1,6 +1,6 @@
 <?php
 
-/* /views//layouts/main.twig */
+/* //views/layouts/main.twig */
 class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac826eacb extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -107,25 +107,8 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
 \t\t\t</p>\t
 \t\t</div>
 \t\t<div id=\"slides\">
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>\t
+\t\t
+\t\t
 \t\t</div>\t
 \t</div>
 
@@ -300,14 +283,14 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
 \t\t\t\t\t</ul>
 \t\t\t\t\t\t<section class=\"top-bar-section\"> 
 \t\t\t\t\t\t\t";
-        // line 275
+        // line 258
         echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "TuhesMenu", 1 => array(), 2 => true), "method");
         echo "
 \t\t\t\t\t\t\t<ul class=\"right\">
 \t\t\t\t\t\t\t\t";
-        // line 277
+        // line 260
         $this->displayBlock('topRight', $context, $blocks);
-        // line 278
+        // line 261
         echo "\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</section> </nav>
 \t\t\t\t
@@ -320,7 +303,7 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
 \t\t
 \t\t<div class=\"large-12 columns\">
 \t\t";
-        // line 289
+        // line 272
         $this->displayBlock('content', $context, $blocks);
         echo " 
 \t\t</div>
@@ -342,13 +325,13 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
     {
     }
 
-    // line 277
+    // line 260
     public function block_topRight($context, array $blocks = array())
     {
         echo " ";
     }
 
-    // line 289
+    // line 272
     public function block_content($context, array $blocks = array())
     {
         echo "\t";
@@ -357,7 +340,7 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
 
     public function getTemplateName()
     {
-        return "/views//layouts/main.twig";
+        return "//views/layouts/main.twig";
     }
 
     public function isTraitable()
@@ -367,6 +350,6 @@ class __TwigTemplate_07bbcc6f089bf055069b259947bc99956dea5515e65e1d9d1925714ac82
 
     public function getDebugInfo()
     {
-        return array (  352 => 289,  346 => 277,  341 => 5,  324 => 289,  311 => 278,  309 => 277,  304 => 275,  50 => 24,  28 => 5,  22 => 1,);
+        return array (  335 => 272,  329 => 260,  324 => 5,  307 => 272,  294 => 261,  292 => 260,  287 => 258,  50 => 24,  28 => 5,  22 => 1,);
     }
 }

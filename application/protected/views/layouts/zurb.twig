@@ -23,7 +23,27 @@
 						<section class="top-bar-section"> 
 							{{ this.widget('TuhesMenu',{},true) }}
 							<ul class="right">
-								{% block topRight %} {% endblock %}
+								{% block topRight %}
+									<li class="has-dropdown not-click"><a href="#">Страницы</a>
+										<ul class="dropdown">
+											<li><a href="/application/pages/create"> Добавить </a></li>
+											<li><a href="/application/pages/admin"> Редактировать </a></li>
+										</ul>
+									</li>
+									<li class="has-dropdown not-click"><a href="#">Новости</a>
+										<ul class="dropdown">
+											<li><a href="/application/news/create"> Добавить </a></li>
+											<li><a href="/application/news/admin"> Редактировать </a></li>
+										</ul>
+									</li>
+									<li class="has-dropdown not-click"><a href="#">Слайдер</a>
+										<ul class="dropdown">
+											<li><a href="/application/slides/create"> Добавить </a></li>
+											<li><a href="/application/slides/admin"> Редактировать </a></li>
+										</ul>
+									</li>
+								
+								{% endblock %}
 							</ul>
 						</section> </nav>
 				
@@ -39,11 +59,12 @@
 		</div>
     </div>
     
-   
+    <!--
     <script src="/application/js/jquery.js"></script>
     <script src="/application/js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
+	-->
   </body>
 </html>

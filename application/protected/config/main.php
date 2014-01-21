@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'ext.easyimage.EasyImage',
 	),
 
 	'modules'=>array(
@@ -36,9 +37,16 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		 'urlManager'=>array(
+			'rules'=>array(
+				'pages/read/<slug:.*?>'=>'pages/view'
+				),
             'urlFormat'=>'path',
 			'showScriptName'=>false, 
         ),
+        
+         'easyImage' => array(
+			'class' => 'application.extensions.easyimage.EasyImage',),
+        
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(

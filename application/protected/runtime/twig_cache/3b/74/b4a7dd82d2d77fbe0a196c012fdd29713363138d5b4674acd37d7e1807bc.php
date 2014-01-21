@@ -7,7 +7,7 @@ class __TwigTemplate_3b74b4a7dd82d2d77fbe0a196c012fdd29713363138d5b4674acd37d7e1
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("//views/layouts/main.twig");
+        $this->parent = $this->env->loadTemplate("//views/layouts/public_base.twig");
 
         $this->blocks = array(
             'content' => array($this, 'block_content'),
@@ -16,7 +16,7 @@ class __TwigTemplate_3b74b4a7dd82d2d77fbe0a196c012fdd29713363138d5b4674acd37d7e1
 
     protected function doGetParent(array $context)
     {
-        return "//views/layouts/main.twig";
+        return "//views/layouts/public_base.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -28,14 +28,24 @@ class __TwigTemplate_3b74b4a7dd82d2d77fbe0a196c012fdd29713363138d5b4674acd37d7e1
     public function block_content($context, array $blocks = array())
     {
         // line 3
-        echo "<h1> ";
-        echo $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "title");
-        echo "</h1>
- ";
+        echo "<div class=\"news-container\">
+\t<div class=\"title\"><h1> ";
         // line 4
+        echo $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "title");
+        echo "</h1> </div>
+\t<div class=\"aside\"></div>
+\t<div class=\"container\">
+\t\t<div class=\"content\">
+\t\t\t
+\t\t\t";
+        // line 9
         echo $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "content");
         echo "
- ";
+\t\t</div>
+\t</div>
+</div>
+
+";
     }
 
     public function getTemplateName()
@@ -50,6 +60,6 @@ class __TwigTemplate_3b74b4a7dd82d2d77fbe0a196c012fdd29713363138d5b4674acd37d7e1
 
     public function getDebugInfo()
     {
-        return array (  36 => 4,  31 => 3,  28 => 2,);
+        return array (  42 => 9,  34 => 4,  31 => 3,  28 => 2,);
     }
 }

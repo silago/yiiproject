@@ -11,7 +11,6 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'topRight' => array($this, 'block_topRight'),
             'content' => array($this, 'block_content'),
         );
     }
@@ -27,9 +26,9 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-<link rel=\"stylesheet\" type=\"text/css\" href=\"css/main.css\" />
+<link rel=\"stylesheet\" type=\"text/css\" href=\"/application/css/main.css\" />
 <script type=\"text/javascript\" src=\"http://code.jquery.com/jquery.min.js\"></script>
-<script src=\"js/jquery.slides.min.js\"></script>
+<script src=\"/application/js/jquery.slides.min.js\"></script>
 <script>
     \$(function() {
       \$('#slides').slidesjs({
@@ -107,146 +106,21 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 \t\t\t</p>\t
 \t\t</div>
 \t\t<div id=\"slides\">
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>
-
-\t\t\t<div class=\"slide-block\">
-\t\t\t\t<img src=\"images/slider-img.jpg\" height=\"297\" width=\"957\" alt=\"\" />\t
-\t\t\t</div>\t
-\t\t</div>\t
+\t\t\t<!-- start -->
+\t\t\t\t";
+        // line 84
+        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "SlidesItems", 1 => array(), 2 => true), "method");
+        echo "
+\t\t\t<!-- end -->
+\t\t</div>
 \t</div>
 \t
 \t
 \t";
-        // line 106
-        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "NewsItems", 1 => array(), 2 => true), "method");
+        // line 90
+        $this->displayBlock('content', $context, $blocks);
+        // line 93
         echo "
-<!--
-\t<div class=\"news-container\">
-\t\t<div class=\"title\">
-\t\t\t<p>НОВОСТИ</p>\t
-\t\t\t<a href=\"#\">Все новости</a>
-\t\t\t<img src=\"images/title-ln.jpg\" height=\"12\" width=\"20\" alt=\"\" />
-\t\t</div>
-
-\t\t<div class=\"news-block\">
-\t\t\t<a href=\"#\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
-\t\t\t<div class=\"news-info\">
-\t\t\t\t<p>22 октября</p>\t
-\t\t\t\t<p><strong>Посвящены в филологи!</strong></p>
-\t\t\t\t<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-\t\t\t\t<a href=\"#\">Подробней</a>
-\t\t\t</div>
-\t\t</div>\t
-
-\t\t<div class=\"news-block\">
-\t\t\t<a href=\"#\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
-\t\t\t<div class=\"news-info\">
-\t\t\t\t<p>22 октября</p>\t
-\t\t\t\t<p><strong>Посвящены в филологи!</strong></p>
-\t\t\t\t<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-\t\t\t\t<a href=\"#\">Подробней</a>
-\t\t\t</div>
-\t\t</div>
-
-\t\t<div class=\"news-block\">
-\t\t\t<a href=\"#\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
-\t\t\t<div class=\"news-info\">
-\t\t\t\t<p>22 октября</p>\t
-\t\t\t\t<p><strong>Посвящены в филологи!</strong></p>
-\t\t\t\t<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-\t\t\t\t<a href=\"#\">Подробней</a>
-\t\t\t</div>
-\t\t</div>
-
-\t\t<div class=\"news-block\">
-\t\t\t<a href=\"#\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
-\t\t\t<div class=\"news-info\">
-\t\t\t\t<p>22 октября</p>\t
-\t\t\t\t<p><strong>Посвящены в филологи!</strong></p>
-\t\t\t\t<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-\t\t\t\t<a href=\"#\">Подробней</a>
-\t\t\t</div>
-\t\t</div>
-
-\t\t<div class=\"news-block\">
-\t\t\t<a href=\"#\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
-\t\t\t<div class=\"news-info\">
-\t\t\t\t<p>22 октября</p>\t
-\t\t\t\t<p><strong>Посвящены в филологи!</strong></p>
-\t\t\t\t<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-\t\t\t\t<a href=\"#\">Подробней</a>
-\t\t\t</div>
-\t\t</div>
-
-\t\t<div class=\"news-block\">
-\t\t\t<a href=\"#\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
-\t\t\t<div class=\"news-info\">
-\t\t\t\t<p>22 октября</p>\t
-\t\t\t\t<p><strong>Посвящены в филологи!</strong></p>
-\t\t\t\t<p>Мы с нетерпением ждали Посвящения в филологи: готовились, репетировали свою сценку, и наконец, этот день настал!</p>
-\t\t\t\t<a href=\"#\">Подробней</a>
-\t\t\t</div>
-\t\t</div>
-\t</div>
--->
-\t<div class=\"partner\">
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner1.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Министерство образования и науки РФ</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner2.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>\t
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner3.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner4.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner5.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner6.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner7.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-\t</div>
-
 \t<!-- footer -->
 \t<div class=\"footer_blank\"></div>
 </div>
@@ -271,75 +145,6 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <body>
-    
-    
-   
-  
-\t\t<div id=\"mainmenu\">
-\t\t\t\t<nav class=\"top-bar\" data-topbar>
-\t\t\t\t\t<ul class=\"title-area\">
-\t\t\t\t\t\t<li class=\"name\">
-\t\t\t\t\t\t\t<h1><a href=\"#\"><img src=\"/application/images/logo.png\" alt=\"\" style=\"height:35px;\" /></a></h1> </li>
-\t\t\t\t\t\t\t<li class=\"toggle-topbar menu-icon\">
-\t\t\t\t\t\t\t\t<a href=\"#\">Меню</a></li>
-\t\t\t\t\t</ul>
-\t\t\t\t\t\t<section class=\"top-bar-section\"> 
-\t\t\t\t\t\t\t";
-        // line 278
-        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "TuhesMenu", 1 => array(), 2 => true), "method");
-        echo "
-\t\t\t\t\t\t\t<ul class=\"right\">
-\t\t\t\t\t\t\t\t";
-        // line 280
-        $this->displayBlock('topRight', $context, $blocks);
-        // line 281
-        echo "\t\t\t\t\t\t\t</ul>
-\t\t\t\t\t\t</section> </nav>
-\t\t\t\t
-\t\t\t\t
-\t\t
-\t\t</div><!-- mainmenu -->
-\t\t
-\t
-\t   <div class=\"row\">
-\t\t
-\t\t<div class=\"large-12 columns\">
-\t\t";
-        // line 292
-        $this->displayBlock('content', $context, $blocks);
-        echo " 
-\t\t</div>
-    </div>
-    
-   
-    <script src=\"/application/js/jquery.js\"></script>
-    <script src=\"/application/js/foundation.min.js\"></script>
-    <script>
-      \$(document).foundation();
-    </script>
-  </body>
-</html>
 ";
     }
 
@@ -348,17 +153,12 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
     {
     }
 
-    // line 280
-    public function block_topRight($context, array $blocks = array())
-    {
-        echo " ";
-    }
-
-    // line 292
+    // line 90
     public function block_content($context, array $blocks = array())
     {
-        echo "\t";
-        echo (isset($context["content"]) ? $context["content"] : null);
+        // line 91
+        echo "\t
+\t";
     }
 
     public function getTemplateName()
@@ -373,6 +173,6 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 
     public function getDebugInfo()
     {
-        return array (  358 => 292,  352 => 280,  347 => 5,  330 => 292,  317 => 281,  315 => 280,  310 => 278,  135 => 106,  50 => 24,  28 => 5,  22 => 1,);
+        return array (  160 => 91,  157 => 90,  152 => 5,  123 => 93,  121 => 90,  112 => 84,  49 => 24,  27 => 5,  21 => 1,);
     }
 }

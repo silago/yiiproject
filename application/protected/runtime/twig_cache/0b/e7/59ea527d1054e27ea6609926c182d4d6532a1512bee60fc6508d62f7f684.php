@@ -7,7 +7,7 @@ class __TwigTemplate_0be759ea527d1054e27ea6609926c182d4d6532a1512bee60fc6508d62f
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("//views/layouts/main_with_right.twig");
+        $this->parent = $this->env->loadTemplate("//views/layouts/zurb.twig");
 
         $this->blocks = array(
             'content' => array($this, 'block_content'),
@@ -16,7 +16,7 @@ class __TwigTemplate_0be759ea527d1054e27ea6609926c182d4d6532a1512bee60fc6508d62f
 
     protected function doGetParent(array $context)
     {
-        return "//views/layouts/main_with_right.twig";
+        return "//views/layouts/zurb.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())

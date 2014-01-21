@@ -24,7 +24,7 @@ class __TwigTemplate_1ab6bcb7c7b8b7ea8757d75a21d0cdf3388dbe5d766c38d3b2f9ea7852a
         $context['_seq'] = twig_ensure_traversable((isset($context["items"]) ? $context["items"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
             // line 4
-            echo "\t\t\t<li><a href=\"#";
+            echo "\t\t\t<li><a href=\"/application/pages/read/";
             echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "slug");
             echo "\">";
             echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "title");
@@ -51,6 +51,6 @@ class __TwigTemplate_1ab6bcb7c7b8b7ea8757d75a21d0cdf3388dbe5d766c38d3b2f9ea7852a
 
     public function getDebugInfo()
     {
-        return array (  38 => 6,  23 => 3,  19 => 1,  84 => 6,  67 => 37,  53 => 26,  48 => 24,  27 => 4,  20 => 1,  39 => 6,  32 => 3,  29 => 2,);
+        return array (  38 => 6,  27 => 4,  23 => 3,  19 => 1,);
     }
 }
