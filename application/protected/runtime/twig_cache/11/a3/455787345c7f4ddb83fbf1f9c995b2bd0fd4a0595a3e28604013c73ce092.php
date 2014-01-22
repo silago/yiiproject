@@ -70,6 +70,11 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 \t\t\t<p><strong>Телефон:</strong> +7 (3952) <strong>24-39-09</strong></p>\t
 \t\t\t<p><a href=\"#\">Схема проезда</a></p>
 \t\t\t<p>
+\t\t\t\t";
+        // line 47
+        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "feedback.components.FeedbackForm", 1 => array(), 2 => true), "method");
+        echo "
+\t\t\t\t<!--
 \t\t\t\t<a class=\"virt\" href=\"#\">Виртуальная приемная</a>
 \t\t\t\t<div class=\"virt-box\">
 \t\t\t\t\t<img src=\"images/virt-ln.png\" height=\"9\" width=\"15\" alt=\"\" />
@@ -80,7 +85,7 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 \t\t\t\t\t\t<textarea placeholder=\"Сообщение\"></textarea>
 \t\t\t\t\t\t<input type=\"submit\" value=\"Отправить\" />
 \t\t\t\t\t</form>\t
-\t\t\t\t</div>
+\t\t\t\t</div>-->
 \t\t\t</p>
 \t\t</div>
 \t</div>
@@ -108,7 +113,7 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 \t\t<div id=\"slides\">
 \t\t\t<!-- start -->
 \t\t\t\t";
-        // line 84
+        // line 86
         echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "SlidesItems", 1 => array(), 2 => true), "method");
         echo "
 \t\t\t<!-- end -->
@@ -117,9 +122,9 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 \t
 \t
 \t";
-        // line 90
+        // line 92
         $this->displayBlock('content', $context, $blocks);
-        // line 93
+        // line 95
         echo "
 \t<!-- footer -->
 \t<div class=\"footer_blank\"></div>
@@ -153,10 +158,10 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
     {
     }
 
-    // line 90
+    // line 92
     public function block_content($context, array $blocks = array())
     {
-        // line 91
+        // line 93
         echo "\t
 \t";
     }
@@ -173,6 +178,6 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 
     public function getDebugInfo()
     {
-        return array (  160 => 91,  157 => 90,  152 => 5,  123 => 93,  121 => 90,  112 => 84,  49 => 24,  27 => 5,  21 => 1,);
+        return array (  165 => 93,  162 => 92,  157 => 5,  128 => 95,  126 => 92,  117 => 86,  75 => 47,  49 => 24,  27 => 5,  21 => 1,);
     }
 }

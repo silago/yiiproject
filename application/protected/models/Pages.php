@@ -17,7 +17,7 @@
  */
 class Pages extends CActiveRecord
 {	
-	
+	public $children = array();
 	#private $_children = array();
 	/**
 	 * @return string the associated database table name

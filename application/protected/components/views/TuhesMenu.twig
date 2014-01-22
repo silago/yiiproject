@@ -1,6 +1,11 @@
 
-		<ul class="left">
+		<ul>
 			 {% for item in items %}
-			<li><a href="/application/pages/read/{{ item.slug }}">{{ item.title }}</a></li>
+			<li>
+				 <a href="/application/pages/read/{{ item.slug }}">{{ item.title }}</a><span class="one"></span>
+				{% if item.children is defined %}				
+					{% include "//components/views/TuhesMenu.twig" with {'items':item.children} only %}				
+				{% endif %}
+			</li>
 			 {% endfor %}
 		</ul> 

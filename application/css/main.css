@@ -55,7 +55,11 @@ body {
 					.top-menu ul li:hover {background: #611118;}
 					.top-menu ul li .one {width: 14px; height: 7px; background: url(../images/lin.png) no-repeat; position: absolute;top: 0px; left: 45%; display: none;}
 					.top-menu ul li:hover .one {display: block;}
-					.top-menu ul li:hover .first {display: block;}
+					.top-menu ul li:hover > ul {display: block;}
+					.top-menu ul li ul span {display: none;}
+					
+					.top-menu ul li ul .one {display:none;}
+					.top-menu ul li:hover ul .one {display:none;}
 					.top-menu ul ul li:hover .last {display: block;}
 
 			.top-menu ul ul {position: absolute; z-index: 300; background: #611118; width: 487px; display: none;}

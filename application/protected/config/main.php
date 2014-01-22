@@ -15,13 +15,14 @@ return array(
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
+		'application.feedback.models.*',
 		'application.components.*',
 		'ext.easyimage.EasyImage',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		
+		'feedback',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'hui',
@@ -38,7 +39,8 @@ return array(
 		),
 		 'urlManager'=>array(
 			'rules'=>array(
-				'pages/read/<slug:.*?>'=>'pages/view'
+				'pages/read/<slug:.*?>'=>'pages/view',
+				'feedback/create'=>'feedback/default/create'
 				),
             'urlFormat'=>'path',
 			'showScriptName'=>false, 
