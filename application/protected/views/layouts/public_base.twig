@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="/application/css/main.css" />
+<!--
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+-->
 <script src="/application/js/jquery.slides.min.js"></script>
 <script>
     $(function() {
@@ -13,7 +15,14 @@
         height: 297
       });
     });
+	
+
   </script>
+	
+ <style type="text/css">
+	#feedback-form .errorMessage {color:white; background-color:#800000;  margin-right:18px; padding:5px;  margin-bottom:5px; margin-top:-5px; }
+ </style>
+
 </head>
 
 
@@ -45,18 +54,7 @@
 			<p><a href="#">Схема проезда</a></p>
 			<p>
 				{{ this.widget('feedback.components.FeedbackForm',{},true) }}
-				<!--
-				<a class="virt" href="#">Виртуальная приемная</a>
-				<div class="virt-box">
-					<img src="images/virt-ln.png" height="9" width="15" alt="" />
-					<form>
-						<input type="text" placeholder="Имя" />
-						<input type="text" placeholder="E-mail" />
-						<input type="text" placeholder="Тема" />
-						<textarea placeholder="Сообщение"></textarea>
-						<input type="submit" value="Отправить" />
-					</form>	
-				</div>-->
+		
 			</p>
 		</div>
 	</div>
@@ -68,28 +66,9 @@
 			});
 		});
 	</script>
-
-	<div class="slider-box">
-		<div class="slide-plash">
-			<p>В 2013 году<br /> исполняется</p>
-
-			<span>95 лет</span>
-
-			<p>ИРКУТСКОМУ<br />  
-			ГОСУДАРСТВЕННОМУ<br /> 
-			УНИВЕРСИТЕТУ<br /> 
-			И НАШЕМУ ФАКУЛЬТЕТУ
-			</p>	
-		</div>
-		<div id="slides">
-			<!-- start -->
-				{{ this.widget('SlidesItems',{},true) }}
-			<!-- end -->
-		</div>
-	</div>
-	
 	
 	{% block content %}
+		
 	
 	{% endblock %}
 
@@ -110,6 +89,8 @@
 
 	<p class="copyright">Факультет филологии и журналистики ИГУ</p>
 </div>
+
+
 
 </body>
 </html>

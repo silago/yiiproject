@@ -6,20 +6,29 @@
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
+
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'yii app',
-
+	 'language' => 'ru',
 	// preloading 'log' component
 	'preload'=>array('log'),
-
+	
+	
+        
+        
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.feedback.models.*',
 		'application.components.*',
 		'ext.easyimage.EasyImage',
+		'application.extensions.yii-mail.*',
+		'ext.mail.YiiMailMessage',
 	),
 
+	
+
+        
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 		'feedback',
@@ -33,6 +42,15 @@ return array(
 
 	// application components
 	'components'=>array(
+	
+		'mail' => array(             
+	  'class' => 'ext.yii-mail.YiiMail',             
+	  'transportType' => 'php',             
+	  'viewPath' => 'application.views.mail',             
+	  'logging' => true,             
+	  'dryRun' => false         ),
+	
+	
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
@@ -40,6 +58,7 @@ return array(
 		 'urlManager'=>array(
 			'rules'=>array(
 				'pages/read/<slug:.*?>'=>'pages/view',
+				'pages/update/<id:.*?>'=>'pages/update',
 				'feedback/create'=>'feedback/default/create'
 				),
             'urlFormat'=>'path',
@@ -130,4 +149,11 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+	
+	
+        
+	
+
+
 );
+

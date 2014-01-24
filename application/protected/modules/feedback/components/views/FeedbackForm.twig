@@ -4,24 +4,47 @@
 					
 					{% set form = 
 						this.beginWidget('CActiveForm', {
-						'id':'pages-form',
+						'id':'feedback-form',
 						'action':'/application/feedback/create/',
 						'enableAjaxValidation':true,
-						}, true
+						'focus':{0:model,1:'name'},
+						
+						'clientOptions':{'validateOnSubmit':true,
+										 'validateOnChange':true,
+										 'validateOnType':true,
+										 'afterValidate':'js:checkErrors',
+									 },
+						'htmlOptions':{'onsubmit':'return false;'}
+						
+						
+						}, false, true
 					) %}
 					
 				
-						{{ form.textField(model,'name') }}
-						{{ form.textField(model,'email') }}
-						{{ form.textField(model,'theme') }}
-						{{ form.textField(model,'text') }}
-						<!--<input type="text" placeholder="Имя" />-->
-						<!--<input type="text" placeholder="E-mail" />
-						<input type="text" placeholder="Тема" />
-						<textarea placeholder="Сообщение"></textarea>-->
+						{{ form.textField(model,'name',{'placeholder':'Имя'}) }}
+						{{ form.error(model,'name') }}
+						{{ form.textField(model,'email',{'placeholder':'Email'}) }}
+						{{ form.error(model,'email') }}
+						{{ form.textField(model,'theme',{'placeholder':'Тема'}) }}
+						{{ form.error(model,'theme') }}
+						{{ form.textField(model,'text',{'placeholder':'Текст'}) }}
+						{{ form.error(model,'text') }}
+						
+				
 						<input type="submit" value="Отправить" />
 	`				{{ void(this.endWidget()) }}
 
 				</div>
 					
+					
+				
+
+<script type="text/javascript">
+
+     function checkErrors(form, data, hasError) {
+             if (!hasError) {
+			 document.location="/application/feedback/success/";
+             }
+     }
+</script>
 					

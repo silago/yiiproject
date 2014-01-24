@@ -28,21 +28,23 @@ class __TwigTemplate_3b74b4a7dd82d2d77fbe0a196c012fdd29713363138d5b4674acd37d7e1
     public function block_content($context, array $blocks = array())
     {
         // line 3
-        echo "<div class=\"news-container\">
-\t<div class=\"title\"><h1> ";
-        // line 4
-        echo $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "title");
-        echo "</h1> </div>
-\t<div class=\"aside\"></div>
-\t<div class=\"container\">
-\t\t<div class=\"content\">
-\t\t\t
+        echo "
+\t<div class=\"news-container\">
+\t\t<div class=\"nav\">
+\t\t\t<a href=\"#\">Главная</a>
+\t\t\t<a href=\"#\">Структура</a>
+\t\t\t<a class=\"active\" href=\"#\">Кафедра новейшей литературы</a>\t
+\t\t</div>
+\t\t<div class=\"title\">
+\t\t\t<p>Баннеры Кафедр</p>\t
+\t\t\t<img src=\"images/title-ln.jpg\" height=\"12\" width=\"20\" alt=\"\" />
+\t\t</div>
+\t\t\t\t\t
 \t\t\t";
-        // line 9
+        // line 15
         echo $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "content");
         echo "
-\t\t</div>
-\t</div>
+\t\t
 </div>
 
 ";
@@ -60,6 +62,6 @@ class __TwigTemplate_3b74b4a7dd82d2d77fbe0a196c012fdd29713363138d5b4674acd37d7e1
 
     public function getDebugInfo()
     {
-        return array (  42 => 9,  34 => 4,  31 => 3,  28 => 2,);
+        return array (  45 => 15,  31 => 3,  28 => 2,);
     }
 }

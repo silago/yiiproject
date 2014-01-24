@@ -12,6 +12,7 @@ class FeedbackModule extends CWebModule
 			'application.feedback.models.*',
 			'feedback.models.*',
 			'feedback.components.*',
+			'ext.yii-mail.YiiMailMessage',
 		));
 	}
 

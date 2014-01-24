@@ -28,7 +28,7 @@ class Feedbacks extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			#array('file, order', 'required'),
+			array('name, email, text, theme', 'required'),
 			#array('order', 'numerical', 'integerOnly'=>true),
 			#array('file', 'length', 'max'=>255),
 			#array('file', 'file','types'=>'jpg, gif, png'),

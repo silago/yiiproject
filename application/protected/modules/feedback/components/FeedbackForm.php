@@ -15,12 +15,8 @@
     protected function renderContent()
     {
 		$model = new Feedbacks();
-	#	var_dump($model);
-	#	die();
-	#	die();
-	#	exit();
     if (isset ($this->items)) {
-		$this->render('FeedbackForm', array('model'=>$model));
+		Yii::app()->controller->renderPartial('../../modules/feedback/components/views/FeedbackForm', array('model'=>$model));
 		}
     }
     

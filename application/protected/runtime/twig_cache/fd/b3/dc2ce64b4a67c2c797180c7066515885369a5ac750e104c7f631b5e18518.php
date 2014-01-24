@@ -28,9 +28,33 @@ class __TwigTemplate_fdb3dc2ce64b4a67c2c797180c7066515885369a5ac750e104c7f631b5e
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "\t
+        echo "\t<div class=\"slider-box\">
+\t\t\t<div class=\"slide-plash\">
+\t\t\t\t<p>В 2013 году<br /> исполняется</p>
+
+\t\t\t\t<span>95 лет</span>
+
+\t\t\t\t<p>ИРКУТСКОМУ<br />  
+\t\t\t\tГОСУДАРСТВЕННОМУ<br /> 
+\t\t\t\tУНИВЕРСИТЕТУ<br /> 
+\t\t\t\tИ НАШЕМУ ФАКУЛЬТЕТУ
+\t\t\t\t</p>\t
+\t\t\t</div>
+\t\t\t<div id=\"slides\">
+\t\t\t\t<!-- start -->
+\t\t\t\t\t";
+        // line 18
+        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "SlidesItems", 1 => array(), 2 => true), "method");
+        echo "
+\t\t\t\t<!-- end -->
+\t\t\t</div>
+\t\t</div>
+\t
+\t
+\t
+\t
 \t";
-        // line 5
+        // line 26
         echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "NewsItems", 1 => array(), 2 => true), "method");
         echo "
 \t<div class=\"partner\">
@@ -95,6 +119,6 @@ class __TwigTemplate_fdb3dc2ce64b4a67c2c797180c7066515885369a5ac750e104c7f631b5e
 
     public function getDebugInfo()
     {
-        return array (  34 => 5,  31 => 4,  28 => 3,);
+        return array (  58 => 26,  47 => 18,  31 => 4,  28 => 3,);
     }
 }

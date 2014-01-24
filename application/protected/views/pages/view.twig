@@ -1,14 +1,19 @@
 {% extends "//views/layouts/public_base.twig" %}
 {% block content %}
-<div class="news-container">
-	<div class="title"><h1> {{ model.title }}</h1> </div>
-	<div class="aside"></div>
-	<div class="container">
-		<div class="content">
-			
-			{{ model.content }}
+
+	<div class="news-container">
+		<div class="nav">
+			<a href="#">Главная</a>
+			<a href="#">Структура</a>
+			<a class="active" href="#">Кафедра новейшей литературы</a>	
 		</div>
-	</div>
+		<div class="title">
+			<p>Баннеры Кафедр</p>	
+			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+		</div>
+					
+			{{ model.content }}
+		
 </div>
 
 {%endblock%} 
