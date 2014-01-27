@@ -1,4 +1,7 @@
 <?php
+/* author: silago ||  silago.nevermind@gmail.com 2014  */
+
+
 
 /**
  * This is the model class for table "pages".
@@ -116,24 +119,25 @@ class Pages extends CActiveRecord
 	 */
 	public static function getTree($id=0,$prefix='')
 	{
-		# = array();
-		
-		#echo $id;
 		$result = array();
 		if ($id === 0) $result[0] = 'NULL';
 		$tree =  self::model()->findAll('owner=:owner', array(':owner'=>$id));	
 		foreach ($tree as &$row):
-		#	true;
 			$result[$row->id] = $row->title;
-			#$result[$row->id] = $row->title;
 			$ch = self::model()->getTree($row->id);
 			if (!empty($ch))$result[$row->title]  =  $ch;
 		endforeach;
-#		if ($id !== 0) print_r($result);
 		return $result;	
 	}
 	
-	public static function model($className=__CLASS__)
+
+    /* Конечно же этот код нужно переписать слегка,
+     * но пока что пусть будет таким.
+     * Нужно добавить генерацию урлов, ибо это 
+     * не лезет ни в какие ворота
+     */
+
+ 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}

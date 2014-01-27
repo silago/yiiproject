@@ -7437,3 +7437,128 @@ Stack trace:
 REQUEST_URI=/application/feedback/success/
 HTTP_REFERER=http://yii.dom/
 ---
+2014/01/26 02:46:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'У вас недостаточно прав для выполнения указанного действия.' in /home/silago/work/yii/framework/web/auth/CAccessControlFilter.php:182
+Stack trace:
+#0 /home/silago/work/yii/framework/web/auth/CAccessControlFilter.php(145): CAccessControlFilter->accessDenied(Object(CWebUser), '?? ?????? ?????...')
+#1 /home/silago/work/yii/framework/web/filters/CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /home/silago/work/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#3 /home/silago/work/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#4 /home/silago/work/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 /home/silago/work/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /home/silago/work/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /home/silago/work/yii/framework/web/CWebApplication.php(282): CController->run('admin')
+#8 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('pages/admin')
+#9 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#11 {main}
+REQUEST_URI=/application/pages/admin
+HTTP_REFERER=http://yii.dom/application/site/admin/
+---
+2014/01/26 04:01:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.js".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.js')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.js
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:01:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.js".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.js')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.js
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:02:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.js".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.js')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.js
+HTTP_REFERER=http://yii.dom/application/site/login
+---
+2014/01/26 04:03:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.js".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.js')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.js
+HTTP_REFERER=http://yii.dom/application/site/admin/
+---
+2014/01/26 04:03:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.js".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.js')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.js
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:04:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.min.map".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.min.m...')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.min.map
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:04:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.min.map".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.min.m...')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.min.map
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:05:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.min.map".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.min.m...')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.min.map
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:06:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.min.map".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.min.m...')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.min.map
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:06:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.min.map".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.min.m...')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.min.map
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:06:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.min.map".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.min.m...')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.min.map
+HTTP_REFERER=http://yii.dom/application/news/create
+---
+2014/01/26 04:07:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "js/jquery.min.map".' in /home/silago/work/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/silago/work/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('js/jquery.min.m...')
+#1 /home/silago/work/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /home/silago/work/yii/application/index.php(17): CApplication->run()
+#3 {main}
+REQUEST_URI=/application/js/jquery.min.map
+HTTP_REFERER=http://yii.dom/application/news/create
+---

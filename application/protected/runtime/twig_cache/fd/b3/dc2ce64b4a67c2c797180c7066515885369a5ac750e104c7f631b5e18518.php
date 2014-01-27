@@ -58,48 +58,11 @@ class __TwigTemplate_fdb3dc2ce64b4a67c2c797180c7066515885369a5ac750e104c7f631b5e
         echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "NewsItems", 1 => array(), 2 => true), "method");
         echo "
 \t<div class=\"partner\">
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner1.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Министерство образования и науки РФ</p>
+";
+        // line 28
+        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "SitewidgetsItems", 1 => array(), 2 => true), "method");
+        echo "
 \t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner2.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>\t
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner3.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner4.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner5.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner6.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-
-\t\t<div class=\"block\">
-\t\t\t<a href=\"#\"><img src=\"images/partner7.png\" height=\"86\" width=\"130\" alt=\"\" /></a>
-\t\t\t<img src=\"images/line.png\" height=\"1\" width=\"125\" alt=\"\" />\t
-\t\t\t<p>Научная электронная библиотека</p>
-\t\t</div>
-\t</div>
 
 
 
@@ -119,6 +82,6 @@ class __TwigTemplate_fdb3dc2ce64b4a67c2c797180c7066515885369a5ac750e104c7f631b5e
 
     public function getDebugInfo()
     {
-        return array (  58 => 26,  47 => 18,  31 => 4,  28 => 3,);
+        return array (  63 => 28,  58 => 26,  47 => 18,  31 => 4,  28 => 3,);
     }
 }

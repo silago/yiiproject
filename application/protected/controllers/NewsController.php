@@ -6,7 +6,7 @@ class NewsController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/public_base.twig';
 
 	/**
 	 * @return array action filters
@@ -49,12 +49,24 @@ class NewsController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
-	{
+	
+	# public function actionView($id)
+	# {
+	#	$this->render('view',array(
+	#		'model'=>$this->loadModel($id),
+	#	));
+	# }
+	
+	public function actionView($slug)
+	{	#die($slug);
+		$model = News::model()->find('slug=:slug', array(':slug'=>$slug));
+		if (!empty($model->html_template)) $this->layout = $model->html_template;
+		
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=> $model
 		));
 	}
+	
 
 	/**
 	 * Creates a new model.

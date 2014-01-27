@@ -58,6 +58,7 @@ return array(
 		 'urlManager'=>array(
 			'rules'=>array(
 				'pages/read/<slug:.*?>'=>'pages/view',
+				'news/read/<slug:.*?>'=>'news/view',
 				'pages/update/<id:.*?>'=>'pages/update',
 				'feedback/create'=>'feedback/default/create'
 				),

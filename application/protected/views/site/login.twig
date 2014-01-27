@@ -1,13 +1,28 @@
 {% extends "//views/layouts/zurb.twig" %}
+{% block topRight %}
+{% endblock %}
+
 
 {% block content %}
 {% set breadcrumbs = {0:"login"} %}
 
-<h1>Вход</h1>
+<div class="columns large-12">
+	<p>
+		&nbsp;
+	</p>
+	<p>
+		&nbsp;
+	</p>
+	</div>
+<div class="columns large-4">
+	&nbsp;
+	</div>
+<div class="columns large-4 panel">
 
-<p>Пожалуйста, заполните следующие поля вашими админсими причиндалами:</p>
 
-<div class="form">
+<h4>Вход:</h4>
+
+
 	
 	{% set form = this.widget("CActiveForm", { 
 		'id':'login-form',
@@ -19,17 +34,14 @@
 	
 	
 	<form id="{{ form.id }}" action="{{ form.action }}" method={{form.method}}>
-<p class="note">Поля помеченные <span class="required">*</span> обязательны для заполнения.</p>
 
 	<div class="row">
-		{{ form.labelEx(model,'username') }}
-		{{ form.textField(model,'username') }}
+		{{ form.textField(model,'username',{'placeholder':'Логин'}) }}
 		{{ form.error(model,'username') }}
 	</div>
 
 	<div class="row">
-		{{ form.labelEx(model,'password') }}
-		{{ form.passwordField(model,'password') }}
+		{{ form.passwordField(model,'password',{'placeholder':'Пароль'}) }}
 		{{ form.error(model,'password') }}
 		
 	</div>
@@ -41,11 +53,14 @@
 	</div>
 
 	<div class="row buttons">
-		<input type="submit" value="Вход" class="tiny button"/>
+		<input style="width:100%;" type="submit" value="Вход" class="tiny button"/>
 	</div>
-
-</div><!-- form -->
 </form>
+</div><!-- form -->
 
+
+<div class="columns large-4">
+	&nbsp;
+	</div>
 
  {%endblock%} 

@@ -69,6 +69,17 @@ class __TwigTemplate_3983aa772f7ec0871a2dd9d119556c958bf1de32008f308c887657bd975
 \t\t\t\t</div>
 \t\t\t\t\t
 \t\t\t\t\t
+\t\t\t\t
+
+<script type=\"text/javascript\">
+
+     function checkErrors(form, data, hasError) {
+             if (!hasError) {
+\t\t\t document.location=\"/application/feedback/success/\";
+             }
+     }
+</script>
+\t\t\t\t\t
 ";
     }
 

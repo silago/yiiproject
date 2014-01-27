@@ -145,6 +145,13 @@ class PagesController extends Controller
 	/**
 	 * Lists all models.
 	 */
+	
+	public function set($obj,$val)
+	{
+		$this->$obj = $val;
+	
+	}
+	
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Pages');

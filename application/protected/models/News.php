@@ -33,13 +33,16 @@ class News extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('pubDate, title, content', 'required'),
+			array('title, content', 'required'),
 			array('owner', 'numerical', 'integerOnly'=>true),
 			array('title, html_title, html_description, html_keywords, html_template', 'length', 'max'=>255),
 			array('preview', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, owner, pubDate, title, preview, content, html_title, html_description, html_keywords, html_template', 'safe', 'on'=>'search'),
+			# array('pubDate','default',
+            #  'value'=>new CDbExpression('NOW()'),
+            #  'setOnEmpty'=>false,'on'=>'insert')	
 		);
 	}
 
@@ -113,6 +116,31 @@ class News extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return News the static model class
 	 */
+	    public static function getParentAsArray($id){
+    $result = array();
+    #return $result;
+    $parentId = false;
+    $stop = "0";
+    
+    
+    $item = false;
+    while ($parentId !== $stop){
+        $item = self::model()->find('id=:id',array(':id'=>$id));
+        $parentId = $item->owner;
+        $result[]= array('id'=>$item->id,'name'=>$item->title,'url'=>'#');
+    }
+    return $result; 
+
+    }
+
+
+	public function beforeSave() {
+	#	die('s');
+    if ($this->isNewRecord)
+        $this->pubDate = new CDbExpression('NOW()'); 
+    return parent::beforeSave();
+	} 
+	 
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

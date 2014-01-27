@@ -1,3 +1,30 @@
+<script type="text/javascript">
+	
+	function translite(str){
+	var arr={ '.':'_','а':'a', 'б':'b', 'в':'v', 'г':'g', 'д':'d', 'е':'e', 'ж':'g', 'з':'z', 'и':'i', 'й':'y', 'к':'k', 'л':'l', 'м':'m', 'н':'n', 'о':'o', 'п':'p', 'р':'r', 'с':'s', 'т':'t', 'у':'u', 'ф':'f', 'ы':'i', 'э':'e', 'А':'A', 'Б':'B', 'В':'V', 'Г':'G', 'Д':'D', 'Е':'E', 'Ж':'G', 'З':'Z', 'И':'I', 'Й':'Y', 'К':'K', 'Л':'L', 'М':'M', 'Н':'N', 'О':'O', 'П':'P', 'Р':'R', 'С':'S', 'Т':'T', 'У':'U', 'Ф':'F', 'Ы':'I', 'Э':'E', 'ё':'yo', 'х':'h', 'ц':'ts', 'ч':'ch', 'ш':'sh', 'щ':'shch', 'ъ':'', 'ь':'', 'ю':'yu', 'я':'ya', 'Ё':'YO', 'Х':'H', 'Ц':'TS', 'Ч':'CH', 'Ш':'SH', 'Щ':'SHCH', 'Ъ':'', 'Ь':'',
+	'Ю':'YU', 'Я':'YA'};
+	var replacer=function(a){return arr[a]||a};
+	return str.replace(/[А-яёЁ]/g,replacer)
+	}
+	//alert(translite('алексашка'))
+
+	
+	
+	//translite
+	$('document').ready( function () {
+		$('#News_title').change( function()
+		{	
+			
+			var d  = new Date();
+			
+			var t  = $('#News_title').val();
+			var s = translite(t+'_'+d.toLocaleString());
+			$('#News_slug').val(s);
+		});
+	});
+</script>
+
+
 <?php
 /* @var $this NewsController */
 /* @var $model News */
@@ -18,23 +45,18 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'owner'); ?>
-		<?php echo $form->textField($model,'owner'); ?>
-		<?php echo $form->error($model,'owner'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'pubDate'); ?>
-		<?php echo $form->textField($model,'pubDate'); ?>
-		<?php echo $form->error($model,'pubDate'); ?>
-	</div>
-
+	
+	
 	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'title'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'slug'); ?>
+		<?php echo $form->textField($model,'slug',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'slug'); ?>
 	</div>
 
 	<div class="row">

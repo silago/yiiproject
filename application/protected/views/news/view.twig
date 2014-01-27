@@ -1,0 +1,27 @@
+{% extends "//views/layouts/public_base.twig" %}
+{% block content %}
+   	<div style="width:100%;" class="news-container">
+		<div class="nav">
+			{% set breadcrumbs = model.getParentAsArray(model.id) %}
+            {% if not breadcrumbs %}
+                <a href="@">asd  asd: </a>
+            {% endif %}
+            
+            {% for crumb in breadcrumbs %}
+                <a href="#"> Член </a>
+            {% endfor %}
+            
+            <a href="#">Главная 12</a>
+			<a href="#">Структура</a>
+			<a class="active" href="#">Кафедра новейшей литературы</a>	
+		</div>
+		<div class="title">
+			<p>Баннеры Кафедр</p>	
+			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+		</div>
+        <div class="container">					
+			{{ model.content }}
+        </div>
+    </div>
+
+{% endblock %}

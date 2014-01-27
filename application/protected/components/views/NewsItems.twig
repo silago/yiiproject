@@ -5,16 +5,17 @@
 			<a href="#">Все новости</a>
 			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
 		</div>
-
+		 {% for item in items %}
 		<div class="news-block">
-			<a href="#"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
-			 {% for item in items %}
+			<a href="/application/news/read/{{ item.slug }}"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			
 				<div class="news-info">
 					<p>{{ item.pubDate }}</p>	
 					<p><strong>{{ item.title }}</strong></p>
 					<p> {{ item.preview }}</p>
-					<a href="#">Подробней</a>
+					<a href="/application/news/read/{{ item.slug }}">Подробней</a>
 				</div>
-			 {% endfor %}
+			
 		</div>	
+		 {% endfor %}
 </div>

@@ -6,6 +6,7 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="/application/zurb/css/foundation.css" />
     <script src="/application/zurb/js/modernizr.js"></script>
+ 
   </head>
   <body>
     
@@ -33,14 +34,16 @@
 									<li class="has-dropdown not-click"><a href="#">Новости</a>
 										<ul class="dropdown">
 											<li><a href="/application/news/create"> Добавить </a></li>
-											<li><a href="/application/news/admin"> Редактировать </a></li>
+											<li><a href="/application/news//admin"> Редактировать </a></li>
 										</ul>
 									</li>
 									<li class="has-dropdown not-click"><a href="#">Слайдер</a>
 										<ul class="dropdown">
 											<li><a href="/application/slides/create"> Добавить </a></li>
-											<li><a href="/application/slides/admin"> Редактировать </a></li>
+											<li><a href="/application/slides//admin"> Редактировать </a></li>
 										</ul>
+									</li>
+									<li class=""><a href="/application/site/logout/">Выход</a>
 									</li>
 								
 								{% endblock %}
@@ -60,7 +63,7 @@
     </div>
     
     <!--
-    <script src="/application/js/jquery.js"></script>
+   
     <script src="/application/js/foundation.min.js"></script>
     <script>
       $(document).foundation();
