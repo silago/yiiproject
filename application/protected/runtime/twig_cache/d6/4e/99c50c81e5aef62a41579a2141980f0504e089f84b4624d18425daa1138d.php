@@ -20,8 +20,8 @@ class __TwigTemplate_d64e99c50c81e5aef62a41579a2141980f0504e089f84b4624d18425daa
 <div class=\"news-container\">
 \t\t<div class=\"title\">
 \t\t\t<p>НОВОСТИ</p>\t
-\t\t\t<a href=\"#\">Все новости</a>
-\t\t\t<img src=\"images/title-ln.jpg\" height=\"12\" width=\"20\" alt=\"\" />
+\t\t\t<a href=\"/application/news/\">Все новости</a>
+\t\t\t<img src=\"/application/images/title-ln.jpg\" height=\"12\" width=\"20\" alt=\"\" />
 \t\t</div>
 \t\t ";
         // line 8
@@ -33,7 +33,9 @@ class __TwigTemplate_d64e99c50c81e5aef62a41579a2141980f0504e089f84b4624d18425daa
 \t\t\t<a href=\"/application/news/read/";
             // line 10
             echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "slug");
-            echo "\"><img src=\"images/news-img.jpg\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
+            echo "\"><img src=\"/application/uploads/thumb_";
+            echo $this->getAttribute((isset($context["item"]) ? $context["item"] : null), "image");
+            echo "\" height=\"80\" width=\"112\" alt=\"\" /></a>\t
 \t\t\t
 \t\t\t\t<div class=\"news-info\">
 \t\t\t\t\t<p>";
@@ -77,6 +79,6 @@ class __TwigTemplate_d64e99c50c81e5aef62a41579a2141980f0504e089f84b4624d18425daa
 
     public function getDebugInfo()
     {
-        return array (  64 => 21,  53 => 16,  49 => 15,  45 => 14,  41 => 13,  35 => 10,  32 => 9,  28 => 8,  19 => 1,);
+        return array (  66 => 21,  55 => 16,  51 => 15,  47 => 14,  43 => 13,  35 => 10,  32 => 9,  28 => 8,  19 => 1,);
     }
 }

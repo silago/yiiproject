@@ -2,14 +2,26 @@
 {% block content %}
 
 	<div class="news-container">
-		<div class="nav">
-			<a href="#">Главная</a>
+	
+    	<div class="nav">
+			
+            {% set breadcrumbs = model.getParentAsArray(model.id) %}
+            <a href="/"> Главная  </a>
+            {% for crumb in  model.getParentAsArray(model.id) %}
+                <a href="{{ crumb.url }}"> {{ crumb.name }} </a>
+            {% endfor %}
+            <!-- 
+            <a href="#">Главная 12</a>
 			<a href="#">Структура</a>
 			<a class="active" href="#">Кафедра новейшей литературы</a>	
-		</div>
+		    -->
+        </div>
+
+    
+
 		<div class="title">
-			<p>Баннеры Кафедр</p>	
-			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+			<p>{{ model.title }}</p>	
+			<img src="/application/images/title-ln.jpg" height="12" width="20" alt="" />
 		</div>
 					
 			{{ model.content }}

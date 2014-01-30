@@ -34,35 +34,38 @@ class __TwigTemplate_25ab7fe25bbd8d8b26a6b6f5ce86bf64450f9c6358639ee2ae6c80372bf
         // line 5
         $context["breadcrumbs"] = $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "getParentAsArray", array(0 => $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "id")), "method");
         // line 6
-        echo "            ";
-        if ((!(isset($context["breadcrumbs"]) ? $context["breadcrumbs"] : null))) {
-            // line 7
-            echo "                <a href=\"@\">asd  asd: </a>
+        echo "            <a href=\"/\"> Главная </a>
+            <a href=\"/application/news/\"> Новости </a>
             ";
-        }
-        // line 9
-        echo "            
-            ";
-        // line 10
+        // line 8
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["breadcrumbs"]) ? $context["breadcrumbs"] : null));
         foreach ($context['_seq'] as $context["_key"] => $context["crumb"]) {
-            // line 11
-            echo "                <a href=\"#\"> Член </a>
+            // line 9
+            echo "                <a href=\"";
+            echo $this->getAttribute((isset($context["crumb"]) ? $context["crumb"] : null), "url");
+            echo "\"> ";
+            echo $this->getAttribute((isset($context["crumb"]) ? $context["crumb"] : null), "name");
+            echo " </a>
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['crumb'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 13
-        echo "            
+        // line 11
+        echo "            <!-- 
             <a href=\"#\">Главная 12</a>
 \t\t\t<a href=\"#\">Структура</a>
 \t\t\t<a class=\"active\" href=\"#\">Кафедра новейшей литературы</a>\t
-\t\t</div>
+\t\t    -->
+        </div>
 \t\t<div class=\"title\">
-\t\t\t<p>Баннеры Кафедр</p>\t
-\t\t\t<img src=\"images/title-ln.jpg\" height=\"12\" width=\"20\" alt=\"\" />
+\t\t\t<p>";
+        // line 18
+        echo $this->getAttribute((isset($context["model"]) ? $context["model"] : null), "title");
+        echo " </p>\t
+
+\t\t\t<img src=\"/application/images/title-ln.jpg\" height=\"12\" width=\"20\" alt=\"\" />
 \t\t</div>
         <div class=\"container\">\t\t\t\t\t
 \t\t\t";
@@ -87,6 +90,6 @@ class __TwigTemplate_25ab7fe25bbd8d8b26a6b6f5ce86bf64450f9c6358639ee2ae6c80372bf
 
     public function getDebugInfo()
     {
-        return array (  70 => 23,  58 => 13,  51 => 11,  47 => 10,  44 => 9,  40 => 7,  37 => 6,  35 => 5,  31 => 3,  28 => 2,);
+        return array (  73 => 23,  65 => 18,  56 => 11,  45 => 9,  41 => 8,  37 => 6,  35 => 5,  31 => 3,  28 => 2,);
     }
 }

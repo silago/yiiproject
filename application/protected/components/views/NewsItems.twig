@@ -2,12 +2,12 @@
 <div class="news-container">
 		<div class="title">
 			<p>НОВОСТИ</p>	
-			<a href="#">Все новости</a>
-			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+			<a href="/application/news/">Все новости</a>
+			<img src="/application/images/title-ln.jpg" height="12" width="20" alt="" />
 		</div>
 		 {% for item in items %}
 		<div class="news-block">
-			<a href="/application/news/read/{{ item.slug }}"><img src="images/news-img.jpg" height="80" width="112" alt="" /></a>	
+			<a href="/application/news/read/{{ item.slug }}"><img src="/application/uploads/thumb_{{ item.image }}" height="80" width="112" alt="" /></a>	
 			
 				<div class="news-info">
 					<p>{{ item.pubDate }}</p>	

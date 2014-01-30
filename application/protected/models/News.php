@@ -6,7 +6,9 @@
  * The followings are the available columns in table 'news':
  * @property integer $id
  * @property integer $owner
+ 
  * @property string $pubDate
+ * @property string $image
  * @property string $title
  * @property string $preview
  * @property string $content
@@ -68,8 +70,9 @@ class News extends CActiveRecord
 			'pubDate' => 'Pub Date',
 			'title' => 'Title',
 			'preview' => 'Preview',
+            'image'   => 'Image',
 			'content' => 'Content',
-			'html_title' => 'Html Title',
+            'html_title' => 'Html Title',
 			'html_description' => 'Html Description',
 			'html_keywords' => 'Html Keywords',
 			'html_template' => 'Html Template',
@@ -119,15 +122,16 @@ class News extends CActiveRecord
 	    public static function getParentAsArray($id){
     $result = array();
     #return $result;
-    $parentId = false;
+    $parentId = -1;
     $stop = "0";
     
     
     $item = false;
-    while ($parentId !== $stop){
+    while ($parentId !== $stop && $parentId!=''){
         $item = self::model()->find('id=:id',array(':id'=>$id));
         $parentId = $item->owner;
-        $result[]= array('id'=>$item->id,'name'=>$item->title,'url'=>'#');
+        $id = $item->id;
+        $result[]= array('id'=>$item->id,'name'=>$item->title,'url'=>'/application/news/read/'.$item->slug);
     }
     return $result; 
 
@@ -135,12 +139,35 @@ class News extends CActiveRecord
 
 
 	public function beforeSave() {
-	#	die('s');
     if ($this->isNewRecord)
         $this->pubDate = new CDbExpression('NOW()'); 
+
+    
     return parent::beforeSave();
 	} 
 	 
+    public function behaviors(){
+        return array(
+            'SlugBehavior' => array(
+            'class' => 'application.models.behaviors.SlugBehavior',
+            'slug_col' => 'slug',
+            'title_col' => 'title',
+            #'max_slug_chars' => 125,
+            'overwrite' => false
+            )
+        );
+    }
+    
+    
+
+    
+                
+
+
+
+
+
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

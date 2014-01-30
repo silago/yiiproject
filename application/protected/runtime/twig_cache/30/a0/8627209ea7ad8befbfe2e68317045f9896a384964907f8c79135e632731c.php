@@ -41,20 +41,16 @@ class __TwigTemplate_30a08627209ea7ad8befbfe2e68317045f9896a384964907f8c79135e63
 \t\t\t\t<nav class=\"top-bar\" data-topbar>
 \t\t\t\t\t<ul class=\"title-area\">
 \t\t\t\t\t\t<li class=\"name\">
-\t\t\t\t\t\t\t<h1><a href=\"#\"><img src=\"/application/images/logo.png\" alt=\"\" style=\"height:35px;\" /></a></h1> </li>
+\t\t\t\t\t\t\t<h1><a href=\"/\"><img src=\"/application/images/logo.png\" alt=\"\" style=\"height:35px;\" /></a></h1> </li>
 \t\t\t\t\t\t\t<li class=\"toggle-topbar menu-icon\">
 \t\t\t\t\t\t\t\t<a href=\"#\">Меню</a></li>
 \t\t\t\t\t</ul>
 \t\t\t\t\t\t<section class=\"top-bar-section\"> 
-\t\t\t\t\t\t\t";
-        // line 25
-        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "TuhesMenu", 1 => array(), 2 => true), "method");
-        echo "
 \t\t\t\t\t\t\t<ul class=\"right\">
 \t\t\t\t\t\t\t\t";
-        // line 27
+        // line 26
         $this->displayBlock('topRight', $context, $blocks);
-        // line 50
+        // line 49
         echo "\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t</section> </nav>
 \t\t\t\t
@@ -67,7 +63,7 @@ class __TwigTemplate_30a08627209ea7ad8befbfe2e68317045f9896a384964907f8c79135e63
 \t\t
 \t\t<div class=\"large-12 columns\">
 \t\t";
-        // line 61
+        // line 60
         $this->displayBlock('content', $context, $blocks);
         echo " 
 \t\t</div>
@@ -90,10 +86,10 @@ class __TwigTemplate_30a08627209ea7ad8befbfe2e68317045f9896a384964907f8c79135e63
     {
     }
 
-    // line 27
+    // line 26
     public function block_topRight($context, array $blocks = array())
     {
-        // line 28
+        // line 27
         echo "\t\t\t\t\t\t\t\t\t<li class=\"has-dropdown not-click\"><a href=\"#\">Страницы</a>
 \t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown\">
 \t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/pages/create\"> Добавить </a></li>
@@ -103,13 +99,13 @@ class __TwigTemplate_30a08627209ea7ad8befbfe2e68317045f9896a384964907f8c79135e63
 \t\t\t\t\t\t\t\t\t<li class=\"has-dropdown not-click\"><a href=\"#\">Новости</a>
 \t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown\">
 \t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/news/create\"> Добавить </a></li>
-\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/news//admin\"> Редактировать </a></li>
+\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/news/admin\"> Редактировать </a></li>
 \t\t\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t<li class=\"has-dropdown not-click\"><a href=\"#\">Слайдер</a>
 \t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown\">
 \t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/slides/create\"> Добавить </a></li>
-\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/slides//admin\"> Редактировать </a></li>
+\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/slides/admin\"> Редактировать </a></li>
 \t\t\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t\t\t</li>
 \t\t\t\t\t\t\t\t\t<li class=\"\"><a href=\"/application/site/logout/\">Выход</a>
@@ -118,7 +114,7 @@ class __TwigTemplate_30a08627209ea7ad8befbfe2e68317045f9896a384964907f8c79135e63
 \t\t\t\t\t\t\t\t";
     }
 
-    // line 61
+    // line 60
     public function block_content($context, array $blocks = array())
     {
         echo "\t";
@@ -130,13 +126,8 @@ class __TwigTemplate_30a08627209ea7ad8befbfe2e68317045f9896a384964907f8c79135e63
         return "//views/layouts/zurb.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  122 => 61,  97 => 28,  94 => 27,  89 => 6,  71 => 61,  58 => 50,  56 => 27,  51 => 25,  29 => 6,  22 => 1,);
+        return array (  118 => 60,  93 => 27,  90 => 26,  85 => 6,  67 => 60,  54 => 49,  52 => 26,  29 => 6,  22 => 1,);
     }
 }

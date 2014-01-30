@@ -3,21 +3,21 @@
    	<div style="width:100%;" class="news-container">
 		<div class="nav">
 			{% set breadcrumbs = model.getParentAsArray(model.id) %}
-            {% if not breadcrumbs %}
-                <a href="@">asd  asd: </a>
-            {% endif %}
-            
+            <a href="/"> Главная </a>
+            <a href="/application/news/"> Новости </a>
             {% for crumb in breadcrumbs %}
-                <a href="#"> Член </a>
+                <a href="{{ crumb.url }}"> {{ crumb.name }} </a>
             {% endfor %}
-            
+            <!-- 
             <a href="#">Главная 12</a>
 			<a href="#">Структура</a>
 			<a class="active" href="#">Кафедра новейшей литературы</a>	
-		</div>
+		    -->
+        </div>
 		<div class="title">
-			<p>Баннеры Кафедр</p>	
-			<img src="images/title-ln.jpg" height="12" width="20" alt="" />
+			<p>{{ model.title }} </p>	
+
+			<img src="/application/images/title-ln.jpg" height="12" width="20" alt="" />
 		</div>
         <div class="container">					
 			{{ model.content }}

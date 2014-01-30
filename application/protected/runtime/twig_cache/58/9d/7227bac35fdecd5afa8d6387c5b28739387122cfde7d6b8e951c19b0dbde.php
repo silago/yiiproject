@@ -32,7 +32,7 @@ class __TwigTemplate_589d7227bac35fdecd5afa8d6387c5b28739387122cfde7d6b8e951c19b
 
 
 <h1>Pages</h1>
-<table>
+<table style=\"margin-top:10px;\" class=\"columns large-12\">
 \t<thead>
 \t<tr>
 \t\t<td>\tid\t</td>

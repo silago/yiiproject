@@ -50,7 +50,7 @@ class PagesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','admin'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -70,11 +70,10 @@ class PagesController extends Controller
 	public function actionView($slug)
 	{	#die($slug);
 		$model = Pages::model()->find('slug=:slug', array(':slug'=>$slug));
-		if (!empty($model->html_template)) $this->layout = $model->html_template;
-		
-		$this->render('view',array(
-			'model'=> $model
-		));
+		if (!empty($model->html_template)) 
+			$this->render($model->html_template,array('model'=> $model));
+		else
+        $this->render('view',array('model'=> $model));
 	}
 
 	/**
@@ -111,16 +110,13 @@ class PagesController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+        $model=$this->loadModel($id);
 
 		if(isset($_POST['Pages']))
 		{
 			$model->attributes=$_POST['Pages'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -164,16 +160,11 @@ class PagesController extends Controller
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{	
-		$model=new Pages('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Pages']))
-			$model->attributes=$_GET['Pages'];
-
-		$this->render('admin',array(
-			'model'=>$model,
+	{			$dataProvider=new CActiveDataProvider('Pages');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
 		));
-		
+
 	}
 
 	/**

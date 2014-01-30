@@ -5,13 +5,15 @@
     public $title;
     public $menu;
     public $items;
-    public $hui;
+    public $showHidden;
+    public $id;
     public function init(){
 		$this->hideOnEmpty=true;
 		$controllerId = Yii::app()->controller;
-		
-		
-		$this->items = $this->getChildren();
+	    
+      	
+		if (empty($this->id)) $this->id = 0;
+		$this->items = $this->getChildren($this->id);
 		
 		
 		
@@ -19,23 +21,32 @@
 		#}
        ## parent::init();
     }
-    
-    protected function getChildren($id = 0)
-    {	
-		 $items = Pages::model()->findAll('owner=:owner', array(':owner'=>$id));
-		 foreach ($items as &$i)	$i->children=$this->getChildren($i->id);
-		#	 var_dump
-		 return $items;
+
+        function renderDecoration()
+    {
+		
 	}
-    function run()
+
+	function run()
     {
 		$this->renderContent();
 	}
+
+
+
+    protected function getChildren($id = 0)
+    {	 if ($this->showHidden=='0')
+		     $items = Pages::model()->findAll('owner=:owner and in_menu=:in_menu', array(':owner'=>$id,':in_menu'=>1));
+         else			     $items = Pages::model()->findAll('owner=:owner', array(':owner'=>$id));	 
+         #if (empty($items)) return False;
+         foreach ($items as &$i)	$i->children=$this->getChildren($i->id);
+		#	 var_dump
+		 return $items;
+	}
     protected function renderContent()
     {
-    if (!empty ($this->hui)) {
-		$this->render($this->hui, array('items'=>$this->items));
-		}
+    if (empty($this->items)) return false;
+	$this->render('TuhesMenu', array('items'=>$this->items));
     }
     
 }	

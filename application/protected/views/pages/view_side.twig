@@ -1,0 +1,46 @@
+{% extends "//views/layouts/public_base.twig" %}
+{% block content %}
+
+	<div class="news-container">
+	
+    	<div class="nav">
+			
+            {% set breadcrumbs = model.getParentAsArray(model.id) %}
+            <a href="/"> Главная  </a>
+            {% for crumb in  model.getParentAsArray(model.id) %}
+                <a href="{{ crumb.url }}"> {{ crumb.name }} </a>
+            {% endfor %}
+            <!-- 
+            <a href="#">Главная 12</a>
+			<a href="#">Структура</a>
+			<a class="active" href="#">Кафедра новейшей литературы</a>	
+		    -->
+        </div>
+
+    
+
+		<div class="title">
+			<p>{{ model.title }}</p>	
+			<img src="/application/images/title-ln.jpg" height="12" width="20" alt="" />
+		</div>
+			<div class="aside">
+				<div class="nav-menu">
+						{% set sidemenu = this.widget('TuhesMenu',{'showHidden':'1','id':model.id},true) %}
+				        {% if  sidemenu %}
+                            {{ sidemenu }}
+                        {% else  %}
+                            {{ this.widget('TuhesMenu',{'showHidden':'1','id':model.owner},true) }} 
+                        {% endif %}
+                </div>	
+			</div>
+
+            <div class="content">
+			    {{ model.content }}
+            </div>
+		
+</div>
+
+{%endblock%} 
+
+
+

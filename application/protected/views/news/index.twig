@@ -1,0 +1,25 @@
+
+{% extends "//views/layouts/zurb.twig" %}
+{% block content %}
+
+
+
+<h1> News </h1>
+<table>
+	<thead>
+	<tr>
+		<td>	id	</td>
+		<td>	pubDate	</td>
+		<td>	title	</td>
+		<td>	preview	</td>
+	</tr>
+	</thead>
+	<tbody>
+{{ this.widget('zii.widgets.CListView', {
+	'dataProvider':dataProvider,
+	'itemView':'_view',
+},true) }}
+	</tbody>
+</table>
+
+{%endblock%} 

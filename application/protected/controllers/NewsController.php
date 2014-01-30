@@ -28,11 +28,11 @@ class NewsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('index','admin','create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -56,9 +56,12 @@ class NewsController extends Controller
 	#		'model'=>$this->loadModel($id),
 	#	));
 	# }
-	
+
+
+    #public function action
+
 	public function actionView($slug)
-	{	#die($slug);
+	{  
 		$model = News::model()->find('slug=:slug', array(':slug'=>$slug));
 		if (!empty($model->html_template)) $this->layout = $model->html_template;
 		
@@ -72,7 +75,46 @@ class NewsController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	
+    private function createImage($model)
+    {
+
+             if ($model->image){
+				$f = pathinfo($model->image->getName());	
+			
+            $path = $_SERVER['DOCUMENT_ROOT'].'/application/uploads/';
+				$prefix= (string)time();
+				$name  = $prefix.'_'.$f['filename'].'.'.$f['extension'];
+				
+				$fileName = $path.$name;
+				$thumbName = $path.'thumb_'.$name;
+			
+                $model->image->saveAs($fileName)	;
+				$model->image=  $name;
+				$model->save();
+				$imagevariables=getimagesize($fileName);
+				$width_ = '112';  $wratio = $imagevariables[0]/$width_;
+				$height_ = '80'; $hratio = $imagevariables[1]/$height_;
+				
+				$new_width = $width_;
+				$new_height = $height_;
+				if ($wratio<$hratio)
+					$new_height = NULL;
+				else
+					$new_width = NULL;
+								
+				$image = new EasyImage($fileName);
+				$image->resize($new_width, $new_height);
+				$image->crop($width_, $height_);
+				$image->save($thumbName);
+			}
+
+
+
+
+    }
+    
+    public function actionCreate()
 	{
 		$model=new News;
 
@@ -82,9 +124,16 @@ class NewsController extends Controller
 		if(isset($_POST['News']))
 		{
 			$model->attributes=$_POST['News'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+            $model->image=CUploadedFile::getInstance($model,'image');
+            
+   
+		
+            if($model->save()){
+            $this->createImage($model);
+            }       
+
+
+        }
 
 		$this->render('create',array(
 			'model'=>$model,
@@ -132,7 +181,7 @@ class NewsController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	public function actionAdmin()
 	{
 		$dataProvider=new CActiveDataProvider('News');
 		$this->render('index',array(
@@ -140,10 +189,18 @@ class NewsController extends Controller
 		));
 	}
 
+	public function actionIndex()
+	{
+		$model=News::model()->findAll();
+		$this->render('index_view',array(
+			'model'=>$model,
+		));
+	}
+
 	/**
-	 * Manages all models.
+	 * Manages all models.SkldjflkjdsfdslkjflksdjflkjsdklfjsdlkfjsdlkjfsldkjfS
 	 */
-	public function actionAdmin()
+	public function actionAdmin_old()
 	{
 		$model=new News('search');
 		$model->unsetAttributes();  // clear any default values
@@ -153,8 +210,10 @@ class NewsController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
-	}
+	
+    }
 
+    
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

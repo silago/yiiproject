@@ -1,0 +1,25 @@
+{% extends "//views/layouts/public_base.twig" %}
+{% block content %}
+   	<div style="width:100%;" class="news-container">
+		<div class="nav">
+            <a href="/">Главная</a>
+			<a href="/application/news/">Новости</a>
+        </div>
+		<div class="title">
+			<p> Новости </p>	
+
+			<img src="/application/images/title-ln.jpg" height="12" width="20" alt="" />
+		</div>
+        <div class="container">
+            {%for item in model %}
+            <div class="block">
+			    <h3> <a href='/application/news/read/{{item.slug}}'>{{item.title}}</a> </h3>
+                <div>
+                {{ item.content|slice(0,120) }}...
+                </div> 
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

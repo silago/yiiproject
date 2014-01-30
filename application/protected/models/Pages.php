@@ -13,6 +13,7 @@
  * @property string $title
  * @property string $slug
  * @property string $content
+ * @property integer $in_menu
  * @property string $html_template
  * @property string $html_title
  * @property string $html_description
@@ -38,8 +39,8 @@ class Pages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('owner, order, title, slug, content', 'required'),
-			array('owner, order', 'numerical', 'integerOnly'=>true),
+			array('owner, title, content', 'required'),
+			array('owner, order, in_menu', 'numerical', 'integerOnly'=>true),
 			array('title, slug, html_template, html_title, html_description, htm_keywords', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -71,7 +72,8 @@ class Pages extends CActiveRecord
 			'title' => 'Title',
 			'slug' => 'Slug',
 			'content' => 'Content',
-			'html_template' => 'Html Template',
+			'in_menu' => 'in_menu',
+            'html_template' => 'Html Template',
 			'html_title' => 'Html Title',
 			'html_description' => 'Html Description',
 			'htm_keywords' => 'Htm Keywords',
@@ -117,7 +119,19 @@ class Pages extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Pages the static model class
 	 */
-	public static function getTree($id=0,$prefix='')
+	 
+     public function beforeSave(){
+     if (empty($this->order)) {
+        $criteria = new CDbCriteria;
+        $criteria->select='MAX(`order`) as `order`';
+        //$criteria->condition='name LIKE :searchTxt';
+        //$criteria->params=array(':searchTxt'=>'%hair spray%');
+        $n = Pages::model()->find($criteria);
+        $this->order = $n->order+1;
+    }
+    return parent::beforeSave();
+    }
+    public static function getTree($id=0,$prefix='')
 	{
 		$result = array();
 		if ($id === 0) $result[0] = 'NULL';
@@ -137,8 +151,38 @@ class Pages extends CActiveRecord
      * не лезет ни в какие ворота
      */
 
- 	public static function model($className=__CLASS__)
+	public static function getParentAsArray($id){
+    $result = array();
+    $parentId = -1;
+    $stop = "0";
+    $item = false;
+    while ($parentId !== $stop && $parentId!='' && $parentId!=0 && $parentId!='0'){
+        $item = self::model()->find('id=:id',array(':id'=>$id));
+        $parentId = $item->owner;
+        $id = $item->owner;
+        $result[]= array('id'=>$item->id,'name'=>$item->title,'url'=>'/application/pages/read/'.$item->slug);
+    }
+    return array_reverse($result); 
+
+    }
+ 	
+    
+    public static function model($className=__CLASS__)
 	{
-		return parent::model($className);
+		
+        return parent::model($className);
 	}
+
+        public function behaviors(){
+        return array(
+            'SlugBehavior' => array(
+            'class' => 'application.models.behaviors.SlugBehavior',
+            'slug_col' => 'slug',
+            'title_col' => 'title',
+            #'max_slug_chars' => 125,
+            'overwrite' => false
+            )
+        );
+    }
+
 }

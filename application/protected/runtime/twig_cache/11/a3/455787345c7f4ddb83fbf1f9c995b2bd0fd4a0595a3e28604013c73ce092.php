@@ -55,7 +55,7 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 \t\t<div class=\"top-wrap\">
 \t\t\t\t";
         // line 33
-        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "TuhesMenu", 1 => array("hui" => "TuhesMenu"), 2 => true), "method");
+        echo $this->getAttribute((isset($context["this"]) ? $context["this"] : null), "widget", array(0 => "TuhesMenu", 1 => array("showHidden" => "0", "id" => 0), 2 => true), "method");
         echo "
 \t\t\t
 \t\t</div>\t
@@ -64,7 +64,7 @@ class __TwigTemplate_11a3455787345c7f4ddb83fbf1f9c995b2bd0fd4a0595a3e28604013c73
 \t<!-- header -->
 \t<div class=\"header\">
 \t\t<div class=\"logo\">
-\t\t\t<a href=\"#\"><img src=\"images/logo.jpg\" height=\"91\" width=\"124\" alt=\"\" /></a>\t
+\t\t\t<a href=\"/\"><img src=\"/application/images/logo.jpg\" height=\"91\" width=\"124\" alt=\"\" /></a>\t
 \t\t</div>
 
 \t\t<div class=\"head-info\">

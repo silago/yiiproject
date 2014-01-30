@@ -40,24 +40,18 @@
 		<?php echo $form->error($model,'owner'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'order'); ?>
-		
-		<?php  echo $form->textField($model,'order'); ?>
-		<?php echo $form->error($model,'order'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
-
+    <?php /*
 	<div class="row">
 		<?php echo $form->labelEx($model,'slug'); ?>
 		<?php echo $form->textField($model,'slug',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'slug'); ?>
-	</div>
+	</div> */ ?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'content'); ?>
@@ -87,6 +81,11 @@
 		<?php /* echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50));*/ ?>
 		<?php echo $form->error($model,'content'); ?>
 	</div>
+   <div class="row"> 
+    <?php echo $form->labelEx($model,'in_menu'); ?>
+    <?php echo $form->checkBox($model,'in_menu', array('value'=>1, 'uncheckValue'=>0)); ?>
+    <?php echo $form->error($model,'in_menu'); ?> 
+  </div>`
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'html_template'); ?>
@@ -113,7 +112,7 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'button')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
