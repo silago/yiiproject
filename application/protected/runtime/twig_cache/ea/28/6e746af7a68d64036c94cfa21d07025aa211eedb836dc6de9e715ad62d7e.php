@@ -69,10 +69,17 @@ class __TwigTemplate_ea286e746af7a68d64036c94cfa21d07025aa211eedb836dc6de9e715ad
         </p>
     </div>
 
-    <div style=\"text-align:center;\" class=\"large-4 columns\">
+     <div style=\"text-align:center;\" class=\"large-4 columns\">
         <i class=\"fi-wrench ilarge\"> &nbsp; </i>
         <p> 
             <a href=\"/application/configpage/wts/\"> Настройки </a>
+        </p>
+    </div>
+
+   <div style=\"text-align:center;\" class=\"large-12 columns\">
+        <i class=\"fi-star ilarge\"> &nbsp; </i>
+        <p> <span> Галерея: </span>
+            <a href=\"/application/galleryGroups/admin\">Группы  </a> / <a href=\"/application/galleryItems/admin\"> Элементы </a> 
         </p>
     </div>
 

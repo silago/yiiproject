@@ -55,7 +55,7 @@ class __TwigTemplate_140ad364ec59b5644b9a172b1c8af43f18b73eea82be7cfb4ea6b386f92
 \t\t\t\t\t\t\t\t";
         // line 31
         $this->displayBlock('topRight', $context, $blocks);
-        // line 68
+        // line 76
         echo "\t\t\t\t\t\t\t</ul>
                                 
                             <ul class=\"right\">
@@ -73,7 +73,7 @@ class __TwigTemplate_140ad364ec59b5644b9a172b1c8af43f18b73eea82be7cfb4ea6b386f92
 \t\t
 \t\t<div class=\"large-12 columns\">
 \t\t";
-        // line 84
+        // line 92
         $this->displayBlock('content', $context, $blocks);
         echo " 
 \t\t</div>
@@ -130,7 +130,15 @@ class __TwigTemplate_140ad364ec59b5644b9a172b1c8af43f18b73eea82be7cfb4ea6b386f92
 \t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/user/admin\"> Список пользователей </a></li>
 \t\t\t\t\t\t\t\t\t\t</ul>
 \t\t\t\t\t\t\t\t\t</li>
-                                      <li class=\"\"><a href=\"/application/configpage/wts/\">Настройки</a>
+                                    <li class=\"has-dropdown not-click\"><a href=\"/application/user/admin\">Галерея</a>
+\t\t\t\t\t\t\t\t\t\t<ul class=\"dropdown\">
+\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/galleryGroups/create\"> Добавить группу</a></li>
+\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/galleryGroups/admin\"> Список групп </a></li>
+\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/galleryItems/create\"> Добавить элемент</a></li>
+\t\t\t\t\t\t\t\t\t\t\t<li><a href=\"/application/galleryItems/admin\"> Список элементов </a></li>
+                                        </ul>
+\t\t\t\t\t\t\t\t\t</li>
+                                    <li class=\"\"><a href=\"/application/configpage/wts/\">Настройки</a>
 
 
                                 
@@ -138,7 +146,7 @@ class __TwigTemplate_140ad364ec59b5644b9a172b1c8af43f18b73eea82be7cfb4ea6b386f92
 \t\t\t\t\t\t\t\t";
     }
 
-    // line 84
+    // line 92
     public function block_content($context, array $blocks = array())
     {
         echo "\t";
@@ -153,6 +161,6 @@ class __TwigTemplate_140ad364ec59b5644b9a172b1c8af43f18b73eea82be7cfb4ea6b386f92
 
     public function getDebugInfo()
     {
-        return array (  142 => 84,  103 => 32,  100 => 31,  95 => 6,  77 => 84,  59 => 68,  57 => 31,  29 => 6,  22 => 1,);
+        return array (  150 => 92,  103 => 32,  100 => 31,  95 => 6,  77 => 92,  59 => 76,  57 => 31,  29 => 6,  22 => 1,);
     }
 }
