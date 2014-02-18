@@ -1,11 +1,13 @@
-
-		<ul>
+		{% if items %}
+        <ul>
 			 {% for item in items %}
-			<li>
-				 <a href="/application/pages/read/{{ item.slug }}">{{ item.title }}</a><span class="one"></span>
+             {% set item_url = "/application/pages/read/" ~ item.slug %} 
+			<li {% if item_url == url %}  class="active" {% endif %}  >
+				<a href="/application/pages/read/{{ item.slug }}">{{ item.title }}</a><span class="one"></span>
 				{% if item.children is defined %}				
-					{% include "//components/views/TuhesMenu.twig" with {'items':item.children} only %}				
+					{% include "//components/views/TuhesMenu.twig" with {'items':item.children, 'url':url} only %}				
 				{% endif %}
 			</li>
 			 {% endfor %}
 		</ul> 
+        {% endif %}

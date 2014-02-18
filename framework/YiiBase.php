@@ -412,10 +412,14 @@ class YiiBase
 			if(strpos($className,'\\')===false)  // class without namespace
 			{
 				if(self::$enableIncludePath===false)
-				{
+				{	#var_dump(self::$_includePaths);
+					#die();
 					foreach(self::$_includePaths as $path)
-					{
+					{	if ($path == '/usr/share/php' or $path == '/usr/share/pear')
+							break;
 						$classFile=$path.DIRECTORY_SEPARATOR.$className.'.php';
+						#if ($className=='Twig_Loader_Filesystem')
+						#	die($path);
 						if(is_file($classFile))
 						{
 							include($classFile);

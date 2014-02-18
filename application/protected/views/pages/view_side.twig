@@ -1,4 +1,23 @@
 {% extends "//views/layouts/public_base.twig" %}
+
+{% block title %}
+    {% if model.html_title %}
+        {{ model.html_title }}
+    {% else %}
+        {{ model.title }}
+    {% endif %}
+{% endblock %}
+
+{% block description %}
+    {{ model.html_description }}
+{% endblock %}
+
+{% block keywords %}
+    {{ model.htm_keywords }}
+{% endblock %}
+
+
+
 {% block content %}
 
 	<div class="news-container">
@@ -23,18 +42,19 @@
 			<p>{{ model.title }}</p>	
 			<img src="/application/images/title-ln.jpg" height="12" width="20" alt="" />
 		</div>
+		{% if 	model.additional_content %}
+		<div class="banner-box">
+			{{ model.additional_content }}
+		</div>
+		{% endif %}
+		
 			<div class="aside">
 				<div class="nav-menu">
-						{% set sidemenu = this.widget('TuhesMenu',{'showHidden':'1','id':model.id},true) %}
-				        {% if  sidemenu %}
-                            {{ sidemenu }}
-                        {% else  %}
-                            {{ this.widget('TuhesMenu',{'showHidden':'1','id':model.owner},true) }} 
-                        {% endif %}
+                            {{ this.widget('TuhesMenu',{'showHidden':'1','id':'0'},true) }} 
                 </div>	
 			</div>
 
-            <div class="content">
+            <div class="content text-box">
 			    {{ model.content }}
             </div>
 		

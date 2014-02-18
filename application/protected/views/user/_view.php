@@ -3,27 +3,35 @@
 /* @var $data User */
 ?>
 
-<div class="view">
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+<tr>
+	<td>
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+	</td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
+	<td>
 	<?php echo CHtml::encode($data->username); ?>
-	<br />
+	</td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
+	<td>
 	<?php echo CHtml::encode($data->password); ?>
-	<br />
+	</td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
+	<td>
 	<?php echo CHtml::encode($data->email); ?>
-	<br />
+	</td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('profile')); ?>:</b>
+	<td>
 	<?php echo CHtml::encode($data->profile); ?>
-	<br />
+	</td>
+     <td>
+	<?php echo CHtml::link('', array('delete', 'id'=>$data->id),array('class'=>'foundicon-remove general','onclick'=>'if (!confirm("Удалить")) return False;')); ?>
+
+    </td>   
+    
+    <td>
+	<?php echo CHtml::link('', array('update', 'id'=>$data->id),array('class'=>'foundicon-edit general')); ?>
+
+    </td>
 
 
-</div>
+</td>

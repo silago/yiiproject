@@ -1,4 +1,20 @@
 {% extends "//views/layouts/public_base.twig" %}
+{% block title %}
+    {% if model.html_title %}
+        {{ model.html_title }}
+    {% else %}
+        {{ model.title }}
+    {% endif %}
+{% endblock %}
+
+{% block description %}
+    {{ model.html_description }}
+{% endblock %}
+
+{% block keywords %}
+    {{ model.htm_keywords }}
+{% endblock %}
+
 {% block content %}
 
 	<div class="news-container">

@@ -6,47 +6,71 @@
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="/application/zurb/css/foundation.css" />
     <script src="/application/zurb/js/modernizr.js"></script>
- 
+    <link rel="stylesheet" href="/application/zurb/foundation-icons/foundation-icons.css" />
+    <link rel="stylesheet" href="/application/zurb/foundation_icons_general/stylesheets/general_foundicons.css" />
   </head>
   <body>
     
     
    
   
-		<div id="mainmenu">
-				<nav class="top-bar" data-topbar>
-					<ul class="title-area">
+		<div id="mainmenu row">
+            
+				<nav  class="top-bar columns large-2" data-topbar>
+				</nav>
+                <nav class="top-bar columns large-10" data-topbar>
+				<!--	<ul class="title-area">
 						<li class="name">
 							<h1><a href="/"><img src="/application/images/logo.png" alt="" style="height:35px;" /></a></h1> </li>
 							<li class="toggle-topbar menu-icon">
 								<a href="#">Меню</a></li>
 					</ul>
-						<section class="top-bar-section"> 
-							<ul class="right">
+				-->
+                <section class="top-bar-section"> 
+							<ul class="columns">
 								{% block topRight %}
-									<li class="has-dropdown not-click"><a href="#">Страницы</a>
+									<li class="has-dropdown not-click"><a href="/application/pages/admin">Страницы</a>
 										<ul class="dropdown">
-											<li><a href="/application/pages/create"> Добавить </a></li>
-											<li><a href="/application/pages/admin"> Редактировать </a></li>
+											<li><a href="/application/pages/create"> Добавить страницу </a></li>
+											<li><a href="/application/pages/admin"> Список страниц </a></li>
 										</ul>
 									</li>
-									<li class="has-dropdown not-click"><a href="#">Новости</a>
+									<li class="has-dropdown not-click"><a href="/application/news/admin">Новости</a>
 										<ul class="dropdown">
-											<li><a href="/application/news/create"> Добавить </a></li>
-											<li><a href="/application/news/admin"> Редактировать </a></li>
+											<li><a href="/application/news/create"> Добавить новость </a></li>
+											<li><a href="/application/news/admin"> Список новостей </a></li>
 										</ul>
 									</li>
-									<li class="has-dropdown not-click"><a href="#">Слайдер</a>
+									<li class="has-dropdown not-click"><a href="/application/slides/admin">Слайдер</a>
 										<ul class="dropdown">
-											<li><a href="/application/slides/create"> Добавить </a></li>
-											<li><a href="/application/slides/admin"> Редактировать </a></li>
+											<li><a href="/application/slides/create"> Добавить слайд </a></li>
+											<li><a href="/application/slides/admin"> Список слайдов </a></li>
 										</ul>
 									</li>
-									<li class=""><a href="/application/site/logout/">Выход</a>
+									<li class="has-dropdown not-click"><a href="/application/sitewidgets/admin">Виджеты</a>
+										<ul class="dropdown">
+											<li><a href="/application/sitewidgets/create">Добавить виджет </a></li>
+											<li><a href="/application/sitewidgets/admin"> Список виджетов </a></li>
+										</ul>
 									</li>
+                                    <li class="has-dropdown not-click"><a href="/application/user/admin">Пользователи</a>
+										<ul class="dropdown">
+											<li><a href="/application/user/create"> Добавить пользователя </a></li>
+											<li><a href="/application/user/admin"> Список пользователей </a></li>
+										</ul>
+									</li>
+                                      <li class=""><a href="/application/configpage/wts/">Настройки</a>
+
+
+                                
 								
 								{% endblock %}
 							</ul>
+                                
+                            <ul class="right">
+    <li class=""><a href="/application/site/logout/">Выход</a>
+									</li>
+                            </ul>
 						</section> </nav>
 				
 				

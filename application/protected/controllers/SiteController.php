@@ -30,6 +30,12 @@ class SiteController extends Controller
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
+	public function actionFeedback()
+	{
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('letter_success');
+	}
 	public function actionIndex()
 	{
 		// renders the view file 'protected/views/site/index.php'
@@ -111,8 +117,11 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-				$this->redirect('/application/site/admin/');
-		}
+                {
+				    $this->redirect('/application/site/admin/');
+                   Yii::app()->authManager->assign('admin', $model->id);  
+		        }
+        }
 		// display the login form
 		
 		

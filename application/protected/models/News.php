@@ -1,12 +1,10 @@
 <?php
-
 /**
  * This is the model class for table "news".
  *
  * The followings are the available columns in table 'news':
  * @property integer $id
  * @property integer $owner
- 
  * @property string $pubDate
  * @property string $image
  * @property string $title
@@ -38,7 +36,7 @@ class News extends CActiveRecord
 			array('title, content', 'required'),
 			array('owner', 'numerical', 'integerOnly'=>true),
 			array('title, html_title, html_description, html_keywords, html_template', 'length', 'max'=>255),
-			array('preview', 'safe'),
+			array('preview, pubDate', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, owner, pubDate, title, preview, content, html_title, html_description, html_keywords, html_template', 'safe', 'on'=>'search'),
@@ -66,16 +64,16 @@ class News extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'owner' => 'Owner',
-			'pubDate' => 'Pub Date',
-			'title' => 'Title',
-			'preview' => 'Preview',
-            'image'   => 'Image',
-			'content' => 'Content',
-            'html_title' => 'Html Title',
-			'html_description' => 'Html Description',
-			'html_keywords' => 'Html Keywords',
-			'html_template' => 'Html Template',
+			'owner' => 'Владелец',
+			'pubDate' => 'Дата создания',
+			'title' => 'Заголовок',
+			'preview' => 'Краткое описание',
+            'image'   => 'Изображение',
+			'content' => 'Содержание',
+            'html_title' => 'HTML Заголовок',
+			'html_description' => 'HTML Описание',
+			'html_keywords' => 'HTML Ключевые слова',
+			'html_template' => 'HTML Шаблон',
 		);
 	}
 
@@ -139,9 +137,13 @@ class News extends CActiveRecord
 
 
 	public function beforeSave() {
-    if ($this->isNewRecord)
-        $this->pubDate = new CDbExpression('NOW()'); 
-
+    #var_dump($this);
+    #die();
+    #exit(0);
+    #if ($this->isNewRecord)
+    #    $this->pubDate = new CDbExpression('NOW()'); 
+    
+   # $this->pubDate=strtotime($this->pubDate);
     
     return parent::beforeSave();
 	} 

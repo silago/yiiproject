@@ -28,7 +28,7 @@ class Slides extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('file, order', 'required'),
+			array('file', 'required'),
 			array('order', 'numerical', 'integerOnly'=>true),
 			array('file', 'length', 'max'=>255),
 			array('file', 'file','types'=>'jpg, gif, png'),
@@ -58,8 +58,8 @@ class Slides extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'file' => 'File',
-			'order' => 'Order',
+			'file' => 'Файл',
+			'order' => 'Позиция',
 		);
 	}
 

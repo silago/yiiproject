@@ -1,8 +1,25 @@
 /* reset */
+div.nav-menu > ul > li > a {font-weight:bold;}
+
+div.nav-menu  ul ul li.active {color:#872c31;}
+
+div.top-menu ul li.active ul > span.one {display:none;}
+div.nav-menu > ul > li > ul > li.active > a {font-weight:bold;}
+
+.top-menu ul ul li.active > .one {display:none!important;}
+
+.aside .nav-menu ul ul {display:none;}
+.nav a:last-child {background:none;}
+.news-info {height:170px;}
+
+.aside .nav-menu ul li.active > ul {display:block;}
+.aside .nav-menu ul ul ul {display:none;}
+
+
 .container .block h3 a {color:black; text-decoration:none;}
 .container .block h3 a:hover {text-decoration:underline;}
 .container .block {padding:10px; border-bottom:1px solid lightgray;}
-.container .block  h3 {font-size:22px; font-weight:normal; text-transform:uppercase; margin-bottom:5px; }
+.container .block  h3 {font-size:22px; font-weight:normal; text-transform:uppercase; margin-bottom:5px; }
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, font, img, ins, kbd, q, s, samp, small, strike, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
 	background-position: 0 0;
 	background-repeat: no-repeat;
@@ -57,7 +74,7 @@ body {
 			.top-menu ul li {float: left; position: relative;}
 				.top-menu ul li a {padding: 11px 39px; font-size: 20px;}
 					.top-menu ul li:hover {background: #611118;}
-					.top-menu ul li .one {width: 14px; height: 7px; background: url(../images/lin.png) no-repeat; position: absolute;top: 0px; left: 45%; display: none;}
+					.top-menu ul li.active > .one {width: 14px; height: 7px; background: url(../images/lin.png) no-repeat; position: absolute;top: 0px; left: 45%; display: none;}
 					.top-menu ul li:hover .one {display: block;}
 					.top-menu ul li:hover > ul {display: block;}
 					.top-menu ul li ul span {display: none;}
@@ -66,13 +83,14 @@ body {
 					.top-menu ul li:hover ul .one {display:none;}
 					.top-menu ul ul li:hover .last {display: block;}
 
-			.top-menu ul ul {position: absolute; z-index: 300; background: #611118; width: 487px; display: none;}
-				.top-menu ul ul li {margin-top: 2px;}
+			.top-menu ul ul {position: absolute; z-index: 300;  width:800px; margin-top:-3px; display: none;}
+				.top-menu ul ul li {background:#611118; margin-top: 2px;}
 					.top-menu ul ul li a {font-size: 15px;}
 						.top-menu ul ul li:hover {background: #852830;}
 						.top-menu ul ul li .two {width: 15px; height: 8px; background: url(../images/ln.png) no-repeat; position: absolute;top: 0px; left: 45%; display: none;}
 						.top-menu ul ul li:hover .two {display: block;}
-
+						z.top-menu ul ul:last-child {right:-49px;}
+                        .top-menu ul li:last-child ul li {left:-46.4%;}
 			.top-menu ul ul ul {position: absolute; z-index: 500; background: #611118; width: 400px; display: none;}
 				.top-menu ul ul ul li {float: none; margin: 0;}
 					.top-menu ul ul ul li a {font-size: 13px;}
@@ -80,19 +98,15 @@ body {
 			.top-menu .active a {background: #611118;}
 			.top-menu .active span {display: block !important;}
 
-			@-moz-document url-prefix() {  
 			 .top-menu ul li a {padding: 10px 39px; }
-			 .top-menu ul ul { width: 487px; }
-			} 
+			 .top-menu ul ul {  }
 
-			@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { 
-   .top-menu ul ul { width: 487px; }
-}
+   .top-menu ul ul { width: 800px; }
 
 /* header */
 .header { height: 135px; padding-top: 25px; }
 	.logo {float: left;}
-	.head-info {float: left; background: url(../images/top-icon.jpg) no-repeat 100% 0; padding-right: 140px; margin: 18px 0 0 18px;}
+	.head-info {float: left; background: url(../images/top-icon.jpg) no-repeat left top; padding-left: 110px; /*margin: 18px 0 0 18px;*/}
 		.head-info p {font-size: 20px; color: #333;  font-family: 'pt_sansregular'; padding-bottom: 5px;}
 			.head-info span {display: block; float: right; text-align: center; font-size: 15px; color: #87764d; font-style: italic; line-height: 130%; background: url(../images/citate.png) no-repeat 0 5px; padding: 0 20px; margin-right: -20px;}
 				.author {float: none !important; text-align: right !important; clear: both; font-size: 13px !important; background: none !important;}
@@ -124,7 +138,7 @@ body {
 	.partner .block {float: left; width: 133px; margin-left: 3px; text-align: center;}
 		.partner .block img {padding-top: 5px;}
 		.partner .block:hover {background: #f7f2eb; outline: 1px solid #d8cdbf; }
-		.partner .block p {text-align: center; font-size: 13px; color: #787878; padding: 5px 10px;}
+		.partner .block p {text-align: center; font-size: 13px; color: #787878; padding: 5px 0px;}
 
 .nav {padding: 0 0 5px 12px;}
 	.nav a {font-size: 13px; color: #666; text-decoration: none; display: inline-block; padding: 0 15px 0 5px; background: url(../images/nav-a.png) 100% 60% no-repeat;}
@@ -148,17 +162,17 @@ body {
 				.nav-menu ul li a {display: block; color: #333; text-decoration: none; padding: 10px 0 10px 10px; margin-left: -10px; }
 				.nav-menu ul li a:hover {background: #f7f2eb; color: #872c31;}
 
-				.nav-menu ul ul li a {padding-left: 7px; padding:0 10px 10px 7px;   }
-				.nav-menu ul ul li {border: none;}
+				.nav-menu ul  li a {padding-left: 7px; padding:7px 10px 10px 28px; margin-left:-30px;    }
+				.nav-menu ul ul li {border: none;  list-style-image: url('../images/ellipse.png');  }
 					.nav-menu ul ul li p {background: url(../images/ellipse.png) no-repeat 10px 5px; padding-left: 25px;}
 				.nav-menu .active {}
-		.nav-menu ul ul li  {background: url(../images/ellipse.png) no-repeat 10px 5px; padding-left: 25px;}
-					.nav-menu .active a {background: #f7f2eb; color: #872c31; margin-left: -10px; padding-left: 10px;}
+		.nav-menu ul ul li  { margin-left:10px;}
+					.nav-menu ul ul .active > a {color: #872c31; }
 
 	.content {overflow: hidden;}
 		.list-container {margin-left: -6px;}
 		.list-container h2 {margin-left: 6px; font-size: 16px; padding: 5px 0 25px 0; font-weight: bold;}
-		.list-block {display: inline-block; vertical-align: top; width: 145px; margin: 0 0 20px 6px; font-size: 13px;}
+		.list-block {display: inline-block; vertical-align: top; width: 145px; margin: 0 0 20px 6px; font-size: 13px; text-align:center;}
 			.list-block a {border: 3px solid #f7f2eb; display: block; border-radius: 5px; margin-bottom: 10px;}
 				.list-block p {text-align: center; padding-top: 3px;}
 				.list-block span {display: block; text-align: center; font-style: italic; padding-top: 3px;}
@@ -171,7 +185,7 @@ body {
 					.text-box td strong {font-size: 16px; display: inline-block; padding: 0 0 0 15px;}
 					.text-box a {color: #8b2832;}
 					.text-box a:hover {text-decoration: none;}
-					.text-box strong {display: block;}
+					/*.text-box strong {display: block;}*/
 					.text-box span {display: block; padding-bottom: 20px;}
 					.text-box .titles {padding-bottom: 20px; display: inline-block;}
 					.text-box img {padding: 5px; border: 1px solid #999999; margin-bottom: 20px;}
@@ -206,7 +220,7 @@ body {
 .sub-info {float: left;}
 	.sub-info a {text-decoration: none; color: #333;}
 	.sub-info a:hover, .working a:hover {text-decoration: underline;}
-.working {float: right; font-size: 14px; color: #787878;}
+.working {float: right; font-size: 14px; color: #787878; background: url(/application/images/logoinsite.png) no-repeat left center; padding-left: 40px;}
 	.working a {color: #787878; text-decoration: none;}
 .copyright {overflow: hidden; text-align: center;}
 
@@ -293,3 +307,32 @@ input:focus, textarea:focus {outline: none;}
     .navbar {
       overflow: hidden
     }
+	
+a.univer-link
+{
+	display:block;
+	position: absolute;
+	width: 86px;
+	height: 83px;
+	text-decoration: none;
+	margin-left: -110px;
+}
+
+.content ol, .content ul
+{
+	margin-bottom:20px;
+}
+
+.content ul li
+{
+	list-style: square;
+	margin-left:25px;
+	margin-bottom: 5px;
+}
+
+.content ol li
+{
+	list-style-type: decimal;
+	margin-left:25px;
+	margin-bottom: 5px;
+}

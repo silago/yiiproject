@@ -12,6 +12,7 @@
  * @property integer $order
  * @property string $title
  * @property string $slug
+ * @property string $additional_content
  * @property string $content
  * @property integer $in_menu
  * @property string $html_template
@@ -39,9 +40,10 @@ class Pages extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('owner, title, content', 'required'),
+			array('owner, title', 'required'),
 			array('owner, order, in_menu', 'numerical', 'integerOnly'=>true),
 			array('title, slug, html_template, html_title, html_description, htm_keywords', 'length', 'max'=>255),
+			array('additional_content, content, redirect','length', 'max'=>999999),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, owner, order, title, slug, content, html_title, html_description, htm_keywords', 'safe', 'on'=>'search'),
@@ -67,16 +69,18 @@ class Pages extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'owner' => 'Owner',
-			'order' => 'Order',
-			'title' => 'Title',
+			'owner' => 'Владелец',
+			'order' => 'Порядок',
+			'title' => 'Заголовок',
 			'slug' => 'Slug',
-			'content' => 'Content',
-			'in_menu' => 'in_menu',
-            'html_template' => 'Html Template',
-			'html_title' => 'Html Title',
-			'html_description' => 'Html Description',
-			'htm_keywords' => 'Htm Keywords',
+			'additional_content' => 'Дополнительные данные',
+			'content' => 'Контент',
+			'in_menu' => 'Отображать в меню',
+			'redirect' => 'Редирект',
+            'html_template' => 'HTML Шаблон',
+			'html_title' => 'HTML Заголовок',
+			'html_description' => 'HTML Описание',
+			'htm_keywords' => 'HTML Ключевые слова',
 		);
 	}
 
@@ -121,6 +125,14 @@ class Pages extends CActiveRecord
 	 */
 	 
      public function beforeSave(){
+     if (empty($this->additional_content)) $this->additional_content='';
+     if (empty($this->html_title)) $this->html_title='';
+     if (empty($this->html_description)) $this->html_description='';
+     if (empty($this->htm_keywords)) $this->htm_keywords='';
+     if (empty($this->redirect)) $this->redirect='';
+
+
+
      if (empty($this->order)) {
         $criteria = new CDbCriteria;
         $criteria->select='MAX(`order`) as `order`';
@@ -131,16 +143,19 @@ class Pages extends CActiveRecord
     }
     return parent::beforeSave();
     }
-    public static function getTree($id=0,$prefix='')
+    public static function getTree($id=0,$prefix='&nbsp;')
 	{
 		$result = array();
 		if ($id === 0) $result[0] = 'NULL';
 		$tree =  self::model()->findAll('owner=:owner', array(':owner'=>$id));	
 		foreach ($tree as &$row):
-			$result[$row->id] = $row->title;
-			$ch = self::model()->getTree($row->id);
-			if (!empty($ch))$result[$row->title]  =  $ch;
-		endforeach;
+			$result[$row->id] = array('name'=>$prefix.$row->title,'children'=>array());
+			$ch = self::model()->getTree($row->id,$prefix.' &nbsp;');
+			if (!empty($ch)){
+                #foreach ($ch as &$c) $c->title = '';
+                $result[$row->id]['children']  =  $ch;
+		    }
+        endforeach;
 		return $result;	
 	}
 	

@@ -1,6 +1,9 @@
 <?php
-error_reporting(E_ALL|E_STRICT);
-ini_set('display_errors', 1);
+
+#phpinfo();
+#die();
+error_reporting(E_ALL);
+ini_set('display_errors', 2);
 //date_default_timezone_set('Asia/Irkustk');
 require('protected/functions/globals.php');
 
@@ -14,5 +17,14 @@ defined('YII_DEBUG') or define('YII_DEBUG',true);
 defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 
 require_once($yii);
-Yii::createWebApplication($config)->run();
-Yii::app()->setTimeZone("Asia/Irkutsk");
+$app = Yii::createWebApplication($config);
+
+
+Yii::app()->getModule('gii')->password = Yii::app()->getModule('configpage')->config->get('giiPassword');
+Yii::app()->name = Yii::app()->getModule('configpage')->config->get('applicationName');
+Yii::app()->params['adminEmail'] = Yii::app()->getModule('configpage')->config->get('adminEmail');
+Yii::app()->params['fromEmail'] = Yii::app()->getModule('configpage')->config->get('fromEmail');
+
+
+$app->run();
+$app->setTimeZone("Asia/Irkutsk");

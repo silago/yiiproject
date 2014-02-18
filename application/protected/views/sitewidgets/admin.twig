@@ -1,0 +1,28 @@
+{% extends "//views/layouts/zurb.twig" %}
+{% block content %}
+
+
+
+
+<h1> Управление виджетами  </h1>
+<table style="margin-top:10px;" class="columns large-12">
+	<thead>
+	<tr>
+		<td>	id	</td>
+		<td>	html	</td>
+<td> </td>
+<td> </td>
+    
+    
+    </tr>
+	</thead>
+	<tbody>
+{{ this.widget('zii.widgets.CListView', {
+	'dataProvider':dataProvider,
+	'itemView':'_view',
+},true) }}
+	</tbody>
+</table>
+
+{%endblock%} 
+

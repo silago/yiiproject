@@ -6,7 +6,7 @@ class UserController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/public_base.twig';
 
 	/**
 	 * @return array action filters
@@ -15,7 +15,7 @@ class UserController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+	//		'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -28,11 +28,11 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array(),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','index','view','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -69,9 +69,11 @@ class UserController extends Controller
 
 		if(isset($_POST['User']))
 		{	
+           	if ($_POST['User']['password']) $_POST['User']['password'] = $model->hashPassword($_POST['User']['password']);
+            
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -93,10 +95,10 @@ class UserController extends Controller
 
 		if(isset($_POST['User']))
 		{
-			$_POST['User']['password'] = $model->hashPassword($_POST['User']['password']);
+			if ($_POST['User']['password']) $_POST['User']['password'] = $model->hashPassword($_POST['User']['password']);
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -112,10 +114,11 @@ class UserController extends Controller
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
+	$this->redirect(array('admin'));
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	//	if(!isset($_GET['ajax']))
+	//		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -151,6 +154,7 @@ class UserController extends Controller
 	 * @return User the loaded model
 	 * @throws CHttpException
 	 */
+     
 	public function loadModel($id)
 	{
 		$model=User::model()->findByPk($id);

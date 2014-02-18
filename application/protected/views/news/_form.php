@@ -11,7 +11,7 @@
 	
 	
 	//translite
-	$('document').ready( function () {
+/*	$('document').ready( function () {
 		$('#News_title').change( function()
 		{	
 			
@@ -22,6 +22,7 @@
 			$('#News_slug').val(s);
 		});
 	});
+*/
 </script>
 
 
@@ -31,22 +32,51 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="form">
 
+<div class="form">
+<div class="columns large-8">	<div>
+	<p> &nbsp; </p>
+	<p> </p>
+	</div>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'news-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
 	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Поля помеченные <span class="required">*</span> необходимы к заполнению.</p>
+
 
 	<?php echo $form->errorSummary($model); ?>
+
+
+<div class="row">
+<?php echo $form->labelEx($model,'pubDate'); ?>
+<?php
+$this->widget('zii.widgets.jui.CJuiDatePicker', array(
+    'model' => $model,
+    'attribute' => 'pubDate',
+'language'=>'ru',
+    'options'=>array('dateFormat'=>'yy-mm-dd'),
+    'htmlOptions' => array(
+
+        'size' => '10',         // textField size
+        'maxlength' => '10',    // textField maxlength
+    ),
+));
+?>
+<?php echo $form->error($model,'pubDate'); ?>
+</div>
+
+
+
+
+
+
+
+
+
 
     <div class="row">
 		<?php echo $form->labelEx($model,'image'); ?>
@@ -61,12 +91,6 @@
 	</div>
 	
 	<div class="row">
-		<?php echo $form->labelEx($model,'slug'); ?>
-		<?php echo $form->textField($model,'slug',array('size'=>60,'maxlength'=>255)); ?>
-		<?php echo $form->error($model,'slug'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'preview'); ?>
 		<?php echo $form->textArea($model,'preview',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'preview'); ?>
@@ -74,9 +98,63 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
+	
+    		<?php $attribute = 'content'; ?>
+		<?php $this->widget('application.widgets.redactor.ERedactorWidget',array(
+		'model'=>$model,
+
+
+		'attribute'=>$attribute,
+		'options'=>array(
+ 'minHeight'=>'200',
+
+        'lang'=>'ru',
+		'convertDivs' => false,
+        'fileUpload'=>Yii::app()->createUrl('pages/fileUpload',array(
+            'attr'=>$attribute
+        )),
+        'fileUploadErrorCallback'=>new CJavaScriptExpression(
+            'function(obj,json) { alert(json.error); }'
+        ),
+        'imageUpload'=>Yii::app()->createUrl('pages/imageUpload',array(
+            'attr'=>$attribute
+        )),
+        'imageGetJson'=>Yii::app()->createUrl('pages/imageList',array(
+            'attr'=>$attribute
+        )),
+        'imageUploadErrorCallback'=>new CJavaScriptExpression(
+            'function(obj,json) { alert(json.error); }'
+        ),
+		),
+)); ?>
+    
 		<?php echo $form->error($model,'content'); ?>
 	</div>
+
+
+    
+	<div class="row buttons">
+	<br/>
+	<br/>
+    <?php echo CHtml::submitButton($model->isNewRecord ? 'Создать' : 'Сохранить',array('class'=>'button submit')); ?>
+
+    </div>
+    </div>
+	<div class="columns large-3">
+		<div>
+	<p>  </p>
+	<p> </p>
+	</div>
+	<br/>
+	<br/> <div  style="border-bottom:1px solid lightgray; padding-bottom:5px;" class="row"> 
+	<h6> Расширенные параметры </h6>
+	<small> ( Необязательны к заполнению ) </small></div>
+<br/>	<div class="row">
+		<?php echo $form->labelEx($model,'slug'); ?>
+		<?php echo $form->textField($model,'slug',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'slug'); ?>
+	</div>
+
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'html_title'); ?>
@@ -101,11 +179,8 @@
 		<?php echo $form->textField($model,'html_template',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'html_template'); ?>
 	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
-
+	</div>
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

@@ -15,9 +15,18 @@ class NewsController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+	#		'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
+
+    public function actions()
+    {
+        return array(
+            'fileUpload'=>'application.widgets.redactor.actions.FileUpload',
+            'imageUpload'=>'application.widgets.redactor.actions.ImageUpload',
+            'imageList'=>'application.widgets.redactor.actions.ImageList',
+        );
+    }
 
 	/**
 	 * Specifies the access control rules.
@@ -28,11 +37,11 @@ class NewsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('view'),
+				'actions'=>array('view','read','index','imageList','fileUpload','imageUpload'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','admin','create','update'),
+				'actions'=>array('admin','create','delete','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -63,7 +72,12 @@ class NewsController extends Controller
 	public function actionView($slug)
 	{  
 		$model = News::model()->find('slug=:slug', array(':slug'=>$slug));
-		if (!empty($model->html_template)) $this->layout = $model->html_template;
+	
+    
+    		if ($model == NULL)
+            throw new CHttpException(404, 'Записи не найдено!');
+    
+        if (!empty($model->html_template)) $this->layout = $model->html_template;
 		
 		$this->render('view',array(
 			'model'=> $model
@@ -156,7 +170,7 @@ class NewsController extends Controller
 		{
 			$model->attributes=$_POST['News'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -183,7 +197,8 @@ class NewsController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$dataProvider=new CActiveDataProvider('News');
+		$dataProvider=new CActiveDataProvider('News',array('pagination' => array('pageSize' => 30,)));
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

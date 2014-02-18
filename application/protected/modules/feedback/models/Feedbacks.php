@@ -56,10 +56,10 @@ class Feedbacks extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'name' => 'Имя',
 			'email' => 'Email',
-			'theme' => 'Theme',
-			'text' => 'Text',
+			'theme' => 'Тема',
+			'text' => 'Текст',
 		);
 	}
 

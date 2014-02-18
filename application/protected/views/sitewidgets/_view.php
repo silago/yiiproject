@@ -4,26 +4,25 @@
 ?>
 
 <div class="view">
+    <tr>
+    <td>
+	    <?php echo CHtml::link(CHtml::encode($data->id), array('update', 'id'=>$data->id)); ?>
+	</td>
+    <td>
+        <?php echo $data->html; ?>
+    </td>
+   
+   
+   
+   	<td><?php echo CHtml::link(CHtml::encode(''), array('sitewidgets/delete/'.$data->id),array('class'=>'foundicon-remove general','onclick'=>'if (!confirm("Удалить?")) return false;')); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+	<td><?php echo CHtml::link(CHtml::encode(''), array('sitewidgets/update/id/'.$data->id),array('class'=>'foundicon-edit general')); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('order')); ?>:</b>
-	<?php echo CHtml::encode($data->order); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('group')); ?>:</b>
-	<?php echo CHtml::encode($data->group); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('html')); ?>:</b>
-	<?php echo CHtml::encode($data->html); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('link')); ?>:</b>
-	<?php echo CHtml::encode($data->link); ?>
-	<br />
+   
+   
+   
+   
+   </tr>
 
 
 </div>

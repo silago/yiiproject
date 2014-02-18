@@ -1,23 +1,26 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <title>{% block title %}{% endblock %}</title>
+ <title>
+ {% block title %}
+	Факультет филологии и журналистики ИГУ
+ {% endblock %} 
+ </title>
+<meta name="description" content="{% block description %} {% endblock %}" />
+<meta name="keywords" content="{% block keywords %} {% endblock %}" />
+ 
+
 <link rel="stylesheet" type="text/css" href="/application/css/main.css" />
-<!--
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
--->
-<script src="/application/js/jquery.slides.min.js"></script>
-<script>
+<script type="text/javascript" src="/application/js/jquery.slides.min.js"></script>
+<script type="text/javascript">
     $(function() {
       $('#slides').slidesjs({
         width: 957,
         height: 297
       });
     });
-	
-
-  </script>
+</script>
 	
  <style type="text/css">
 	#feedback-form .errorMessage {color:white; background-color:#800000;  margin-right:18px; padding:5px;  margin-bottom:5px; margin-top:-5px; }
@@ -42,7 +45,8 @@
 		</div>
 
 		<div class="head-info">
-			<p>Факультет филологии и журналистики  ИГУ</p>	
+			<a href="http://isu.ru/" class="univer-link">&nbsp;</a>
+			<p>Иркутский государственный университет<br />Факультет филологии и журналистики</p>	
 			<span>Филология лежит в основе не только науки,<br />
 			но и всей человеческой культуры</span>
 			<span class="author">Академик Д.С. Лихачев</span>
@@ -51,11 +55,8 @@
 		<div class="phone">
 			<p><strong>Адрес:</strong> Иркутск, ул. Чкалова, 2</p>
 			<p><strong>Телефон:</strong> +7 (3952) <strong>24-39-09</strong></p>	
-			<p><a href="#">Схема проезда</a></p>
-			<p>
-				{{ this.widget('feedback.components.FeedbackForm',{},true) }}
-		
-			</p>
+			<a href="/application/pages/read/skhema-proyezda/">Схема проезда</a>
+			    {{ this.widget('feedback.components.FeedbackForm',{},true) }}
 		</div>
 	</div>
 
@@ -72,6 +73,15 @@
 	
 	{% endblock %}
 
+	<div class="partner">
+{{ this.widget('SitewidgetsItems',{},true) }}
+		</div>
+
+
+
+
+    
+
 	<!-- footer -->
 	<div class="footer_blank"></div>
 </div>
@@ -79,18 +89,28 @@
 	<div class="sub-info">
 		<p>Иркутск, ул. Чкалова, 2. </p>	
 		<p>Телефон: +7 (3952) 24-39-09</p>
-		<p><a href="#">схема проезда</a></p>
+		<p><a href="/application/pages/read/skhema-proyezda/">схема проезда</a></p>
 	</div>
 
 	<div class="working">
 		<p>Создание сайта</p>	
-		<a href="#">In-site</a>
+		<a href="http://www.in-site.ru">In-site</a>
 	</div>
 
 	<p class="copyright">Факультет филологии и журналистики ИГУ</p>
 </div>
 
+<script type="text/javascript">
+    $('.nav-menu li.active').parents('ul').addClass('active').show();
+    $('.nav-menu li.active').parents('li').addClass('active').show();
+    $('.top-menu li.active').parents('li').addClass('active');
+    //var a = ($('.nav-menu ul ul.active').first().html());
+    //if (typeof(a)!='undefined')
+    $('.nav-menu').html($('.nav-menu ul li.active ul').first().first());
+    //else
+    //    $('.nav-menu').html($('.nav-menu ul li.active ul').first
 
+</script>
 
 </body>
 </html>

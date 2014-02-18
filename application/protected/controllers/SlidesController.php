@@ -15,7 +15,7 @@ class SlidesController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+		#	'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -32,7 +32,7 @@ class SlidesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin'),
+				'actions'=>array('create','delete','update','admin'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -137,6 +137,7 @@ class SlidesController extends Controller
 				$image->resize($new_width, $new_height);
 				$image->crop($width_, $height_);
 				$image->save($thumbName);
+                $this->redirect(array('admin'));
 	
             }
         }
@@ -199,14 +200,15 @@ class SlidesController extends Controller
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{
+	{	$dataProvider=new CActiveDataProvider('Slides');
+
 		$model=new Slides('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Slides']))
 			$model->attributes=$_GET['Slides'];
 
 		$this->render('admin',array(
-			'model'=>$model,
+			'model'=>$model,'dataProvider'=>$dataProvider
 		));
 	}
 

@@ -3,19 +3,18 @@
 /* @var $data Slides */
 ?>
 
-<div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+	<tr>
+        <td>
+            <?php echo CHtml::link(CHtml::encode($data->id), array('update', 'id'=>$data->id)); ?>
+        </td>
+        <td>
+        <img src="/application/uploads/thumb_<?php echo CHtml::encode($data->file); ?>" width=100/>
+        </td>
+        	<td><?php echo CHtml::link(CHtml::encode(''), array('slieds/delete/'.$data->id),array('class'=>'foundicon-remove general','onclick'=>'if (!confirm("Удалить?")) return false;')); ?></td>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('file')); ?>:</b>
-	<?php echo CHtml::encode($data->file); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('order')); ?>:</b>
-	<?php echo CHtml::encode($data->order); ?>
-	<br />
+	<td><?php echo CHtml::link(CHtml::encode(''), array('update','id'=>$data->id),array('class'=>'foundicon-edit general')); ?></td>
+        </td>
+   </tr>
 
 
-</div>

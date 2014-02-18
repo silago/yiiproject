@@ -35,18 +35,28 @@
 
 
     protected function getChildren($id = 0)
-    {	 if ($this->showHidden=='0')
+    {
+    
+    
+        if ($this->showHidden=='0')
 		     $items = Pages::model()->findAll('owner=:owner and in_menu=:in_menu', array(':owner'=>$id,':in_menu'=>1));
          else			     $items = Pages::model()->findAll('owner=:owner', array(':owner'=>$id));	 
-         #if (empty($items)) return False;
          foreach ($items as &$i)	$i->children=$this->getChildren($i->id);
-		#	 var_dump
-		 return $items;
+         #foreach ($items as &$i)	$i->children=$this->getChildren($i->id);
+		 
+         
+         return $items;
 	}
     protected function renderContent()
     {
+    #$url =  Yii::app()->urlManager->parseUrl(Yii::app()->request);
+    $url =  (Yii::app()->request->url);
+    #var_dump($url);
+    #echo "######";
+    #die();
+    
     if (empty($this->items)) return false;
-	$this->render('TuhesMenu', array('items'=>$this->items));
+	$this->render('TuhesMenu', array('items'=>$this->items,'url'=>$url));
     }
     
 }	

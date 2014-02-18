@@ -13,10 +13,19 @@
         <div class="container">
             {%for item in model %}
             <div class="block">
+                <table> <tr> <td>
+                {% if item.image %}
+                    <a style="margin-right:10px;" href="/application/news/read/{{ item.slug }}"><img src="/application/uploads/thumb_{{ item.image }}" height="80" width="112" alt="" /></a>	
+			    {% endif %}
+                </td><td style="vertical-align:top;">
+                <small> {{ item.pubDate }}</small>                
 			    <h3> <a href='/application/news/read/{{item.slug}}'>{{item.title}}</a> </h3>
-                <div>
-                {{ item.content|slice(0,120) }}...
-                </div> 
+                    <div>
+                    {{ item.content|striptags|slice(0,120) }}...
+                    </div>
+                </td></tr></table>
+            <br/>
+
             </div>
             {% endfor %}
         </div>

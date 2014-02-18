@@ -28,7 +28,7 @@ class PagesController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+		#	'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 	
@@ -46,11 +46,11 @@ class PagesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','actions','imageList','imageUpload'),
+				'actions'=>array('index','view','actions','imageList','fileUpload','imageUpload'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin'),
+				'actions'=>array('create','update','delete','admin'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -70,10 +70,19 @@ class PagesController extends Controller
 	public function actionView($slug)
 	{	#die($slug);
 		$model = Pages::model()->find('slug=:slug', array(':slug'=>$slug));
-		if (!empty($model->html_template)) 
+		if ($model == NULL)
+            throw new CHttpException(404, 'Записи не найдено!');
+        
+        if (($model->redirect) && (!empty($model->redirect)))
+            {
+            $this->redirect($model->redirect);
+            return 1;
+            }
+        
+        if (!empty($model->html_template)) 
 			$this->render($model->html_template,array('model'=> $model));
 		else
-        $this->render('view',array('model'=> $model));
+        $this->render('view_side',array('model'=> $model));
 	}
 
 	/**
@@ -95,7 +104,7 @@ class PagesController extends Controller
 		{
 			$model->attributes=$_POST['Pages'];
 			if($model->save())
-				$this->redirect(array('read',$model->slug));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -160,7 +169,7 @@ class PagesController extends Controller
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{			$dataProvider=new CActiveDataProvider('Pages');
+	{			$dataProvider=new CActiveDataProvider('Pages',array('pagination' => array('pageSize' => 30,)));
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));

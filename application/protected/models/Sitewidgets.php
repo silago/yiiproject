@@ -55,10 +55,10 @@ class Sitewidgets extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'order' => 'Order',
-			'group' => 'Group',
-			'html' => 'Html',
-			'link' => 'Link',
+			'order' => 'Порядок',
+			'group' => 'Группа',
+			'html' => 'Код',
+			'link' => 'Ссылка',
 		);
 	}
 

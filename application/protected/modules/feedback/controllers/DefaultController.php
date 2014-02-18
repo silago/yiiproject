@@ -2,7 +2,7 @@
 
 class DefaultController extends Controller
 {	
-	
+	public $layout='//layouts/public_base.twig'; 
 	
 	public $email = 'test@mail.ru';
 	
@@ -15,14 +15,16 @@ class DefaultController extends Controller
 	public function sendMail($post)
 	{
 		
+        $to = Yii::app()->params['adminEmail'];
+        $from = Yii::app()->params['fromEmail'];
 
 		$message = new YiiMailMessage;
 		$message->view = 'mail';
 		$message->setBody(array(), 'text/html');
 		 
 		 
-		$message->addTo($this->email);
-		$message->from = $this->email;
+		$message->addTo($to);
+		$message->from = $from;
 		
 		Yii::app()->mail->send($message);	
 		
@@ -30,14 +32,14 @@ class DefaultController extends Controller
 	
 	public function actionSuccess()
 	{
-		echo "done";
-		die();
+	    $this->redirect('/application/site/feedback/');
+        #$this->render('view');
+		#die();
 	}
 	public function actionCreate()
 	{
-	#die('s');
 	$model=new Feedbacks;	
-	
+    #echo "sart";	
 	if(Yii::app()->getRequest()->getIsAjaxRequest()) {
 		$a =  CActiveForm::validate( array( $model)); 
 		if ($a == '[]')
@@ -45,9 +47,10 @@ class DefaultController extends Controller
 			$model->attributes=$_POST['Feedbacks'];
 			if($model->save());
 			$this->sendMail($_POST);
-			}
-		else echo $a;
-		
+			#echo "send";
+            }
+		echo $a;
+		#echo "not send";
 		Yii::app()->end(); 
 	}
 	
